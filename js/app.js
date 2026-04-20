@@ -1,52 +1,64 @@
+// ==========================
+// 🔥 GLOBAL DATA
+// ==========================
 let DATA = {};
 
+
+// ==========================
 // 🔥 LOAD JSON
+// ==========================
 fetch("data/content.json")
 .then(res => res.json())
 .then(data => {
     DATA = data;
     loadPage();
+})
+.catch(err => {
+    console.error("JSON load error:", err);
 });
 
 
-// 🔹 CLASS
-function goClass(c){
+// ==========================
+// 🔹 NAVIGATION (GLOBAL)
+// ==========================
+window.goClass = function(c){
     localStorage.setItem("class", c);
     location.href = "subject.html";
 }
 
-// 🔹 SUBJECT (NEW)
-function goSubject(sub){
+window.goSubject = function(sub){
     localStorage.setItem("subject", sub);
     location.href = "category.html";
 }
 
-// 🔹 CATEGORY
-function goCategory(cat){
+window.goCategory = function(cat){
     localStorage.setItem("category", cat);
     location.href = "chapter.html";
 }
 
-// 🔹 OPEN CHAPTER
-function openChapter(ch){
+window.openChapter = function(ch){
     localStorage.setItem("chapter", ch);
     location.href = "content.html";
 }
 
 
 // ==========================
-// 🔹 LOAD CHAPTERS
+// 🔹 LOAD PAGE DATA
 // ==========================
 function loadPage(){
 
+// ==========================
 // 📚 CHAPTER PAGE
-if(location.pathname.endsWith("chapter.html")){
+// ==========================
+if(location.pathname.includes("chapter.html")){
 
     let cls = localStorage.getItem("class");
     let sub = localStorage.getItem("subject");
     let cat = localStorage.getItem("category");
 
     let container = document.getElementById("chapters");
+
+    console.log("DEBUG:", cls, sub, cat, DATA);
 
     if(container && DATA[cls] && DATA[cls][sub] && DATA[cls][sub][cat]){
 
@@ -66,9 +78,9 @@ if(location.pathname.endsWith("chapter.html")){
 
 
 // ==========================
-// 🔹 LOAD CONTENT
+// 📖 CONTENT PAGE
 // ==========================
-if(location.pathname.endsWith("content.html")){
+if(location.pathname.includes("content.html")){
 
     let cls = localStorage.getItem("class");
     let sub = localStorage.getItem("subject");
@@ -76,6 +88,8 @@ if(location.pathname.endsWith("content.html")){
     let ch = localStorage.getItem("chapter");
 
     let box = document.getElementById("content");
+
+    console.log("CONTENT DEBUG:", cls, sub, cat, ch);
 
     if(box && DATA[cls] && DATA[cls][sub] && DATA[cls][sub][cat] && DATA[cls][sub][cat][ch]){
 
