@@ -15,6 +15,12 @@ function goClass(c){
     location.href = "subject.html";
 }
 
+// 🔹 SUBJECT (NEW)
+function goSubject(sub){
+    localStorage.setItem("subject", sub);
+    location.href = "category.html";
+}
+
 // 🔹 CATEGORY
 function goCategory(cat){
     localStorage.setItem("category", cat);
@@ -33,18 +39,20 @@ function openChapter(ch){
 // ==========================
 function loadPage(){
 
+// 📚 CHAPTER PAGE
 if(location.pathname.endsWith("chapter.html")){
 
     let cls = localStorage.getItem("class");
+    let sub = localStorage.getItem("subject");
     let cat = localStorage.getItem("category");
 
     let container = document.getElementById("chapters");
 
-    if(container && DATA[cls] && DATA[cls][cat]){
+    if(container && DATA[cls] && DATA[cls][sub] && DATA[cls][sub][cat]){
 
         container.innerHTML = "";
 
-        for(let ch in DATA[cls][cat]){
+        for(let ch in DATA[cls][sub][cat]){
             container.innerHTML += `
             <div class="card" onclick="openChapter('${ch}')">
                 ${ch}
@@ -63,16 +71,17 @@ if(location.pathname.endsWith("chapter.html")){
 if(location.pathname.endsWith("content.html")){
 
     let cls = localStorage.getItem("class");
+    let sub = localStorage.getItem("subject");
     let cat = localStorage.getItem("category");
     let ch = localStorage.getItem("chapter");
 
     let box = document.getElementById("content");
 
-    if(box && DATA[cls] && DATA[cls][cat] && DATA[cls][cat][ch]){
+    if(box && DATA[cls] && DATA[cls][sub] && DATA[cls][sub][cat] && DATA[cls][sub][cat][ch]){
 
         box.innerHTML = "";
 
-        DATA[cls][cat][ch].forEach(item => {
+        DATA[cls][sub][cat][ch].forEach(item => {
             box.innerHTML += `
             <div class="content-box">
                 <h3 class="question">${item.title}</h3>
