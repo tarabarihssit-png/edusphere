@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>About Us</title>
+    <title>Content</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600&display=swap" rel="stylesheet">
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -12,20 +16,20 @@
 
 <header class="header">
     <h1>EduSphere</h1>
-    <p>About Us</p>
+    <p>Notes</p>
 </header>
 
-<div class="container" style="text-align:left">
+<div class="container">
 
-<h3>About EduSphere</h3>
+    <!-- 📍 Breadcrumb -->
+    <h3 id="breadcrumb"></h3>
 
-<p>EduSphere is an educational platform designed to provide easy and structured notes for students from Class 9 to 12.</p>
-
-<p>Our goal is to make learning simple, fast, and accessible for everyone.</p>
-
-<p>We continuously update content to help students improve their knowledge and exam preparation.</p>
+    <!-- 📖 Content (dynamic) -->
+    <div id="content"></div>
 
 </div>
+
+<script src="js/app.js"></script>
 
 </body>
 </html>
