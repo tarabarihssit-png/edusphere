@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>EduSphere</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- ✅ GOOGLE FONT -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
+    <!-- ✅ CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -15,12 +16,16 @@
 
 <header class="header">
 
-    <img src="image/logo.png" class="logo">
+    <!-- 🔰 LOGO -->
+    <img src="image/logo.png" class="logo" alt="EduSphere Logo">
 
+    <!-- 🔰 TITLE -->
+    <h1>EduSphere</h1>
     <p>Select Class</p>
 
 </header>
 
+<!-- 📦 MAIN CONTENT -->
 <div class="container">
 
     <div class="grid">
@@ -30,16 +35,17 @@
         <div class="card" onclick="goClass(12)">Class 12</div>
     </div>
 
-</div> <!-- ✅ container close -->
+</div>
 
-<!-- 🔥 FOOTER LINKS (VERY IMPORTANT) -->
-<div class="container">
+<!-- 🔗 FOOTER -->
+<div class="container" style="margin-top:20px; font-size:14px;">
     <a href="about.html">About</a> |
     <a href="privacy.html">Privacy Policy</a> |
     <a href="contact.html">Contact</a>
 </div>
 
-<script src="js/app.js"></script>
+<!-- 🔥 JS -->
+<script defer src="js/app.js"></script>
 
 </body>
 </html>
