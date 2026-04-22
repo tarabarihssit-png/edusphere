@@ -3,7 +3,7 @@
     "IT": {
       "Domestic": {
         "Ch 1. Domestic Data Entry Operator": [
-        {
+          {
           "title": "1. What do you understand by the term IT?",
           "content": "English: Information Technology (IT) refers to the creation, management, storage, and exchange of information using computer hardware and software. It involves taking raw data and processing it to produce meaningful information that can be used for various purposes.\n\nAssamese: তথ্য প্ৰযুক্তি (IT) মানে কম্পিউটাৰ হাৰ্ডৱেৰ আৰু চফ্টৱেৰ ব্যৱহাৰ কৰি তথ্য সৃষ্টি কৰা, ব্যৱস্থাপনা কৰা, সংৰক্ষণ কৰা আৰু আদান-প্ৰদান কৰা। ইয়াৰ জৰিয়তে তথ্য (data) প্ৰচেছিং কৰি ব্যৱহাৰযোগ্য আৰু অৰ্থপূৰ্ণ তথ্যলৈ ৰূপান্তৰ কৰা হয়।"
         },
@@ -102,7 +102,7 @@
         {
           "title": "Full Forms:",
           "content": "IT: Information Technology\n\nITeS: Information Technology enabled Services\n\nICT: Information and Communication Technology\n\nBPO: Business Process Outsourcing\n\nBPM: Business Process Management\n\nITS: IT Services\n\nSPD: Software Products\n\nER&D: Engineering Research and Development\n\nMNC: Multinational Companies\n\nISP: Indian Service Providers\n\nGIC: Global In-house Centers\n\nATM: Automated Teller Machine\n\nCAD: Computer Aided Design\n\nMRI: Magnetic Resonance Imaging\n\nLMS: Learning Management System\n\nUMANG: Unified Mobile Application for New-age Governance"
-          }
+         }
         ]
       }
     }
