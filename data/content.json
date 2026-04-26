@@ -126,5 +126,17 @@
         ]
       }
     }
+  },
+  "10": {
+    "IT": {
+      "Domestic": {
+        "CH1. Introduction to Styles": [
+          {
+            "title": "Definition of a Style (ষ্টাইল (Style) কি)",
+            "content": "A style is a collection of formatting information that you save and then apply to a document.\n\nষ্টাইল হৈছে কিছুমান ফৰ্মেটিং তথ্যৰ সংগ্ৰহ, যাক সংৰক্ষণ কৰি পিছত নথিপত্ৰত (document) প্ৰয়োগ কৰিব পাৰি ।"
+          }
+        ]
+      }
+    }
   }
 }
