@@ -191,5 +191,53 @@
         ]
       }
     }
+  },
+  "12": {
+    "IT": {
+      "Domestic": {
+        "CH 1: RDBMS CONCEPTS IN MYSQL": [
+          {
+            "title": "1. RDBMS (Relational Database Management System)",
+            "content": "RDBMS ৰ Full Form হৈছে Relational Database Management System।\nই এটা Database Management System য’ত Data সমূহ Table আকাৰত store কৰা হয়। প্ৰতিটো Table ত Row আৰু Column থাকে।\n\nRow ক Record বা Tuple বুলি কোৱা হয়।\nColumn ক Field বা Attribute বুলি কোৱা হয়।\n\nRow আৰু Column ৰ intersection ত এটা Box সৃষ্টি হয় য’ত Data Values store কৰা হয়।\n\nRDBMS ত একাধিক Table ৰ মাজত Relationship থাকে। Common Field বা Attribute ৰ সহায়ত Table সমূহ link কৰা হয়। ইয়াৰ ফলত Data সহজে retrieve, update, delete আৰু manipulate কৰিব পাৰি।"
+          },
+          {
+            "title": "2. Data",
+            "content": "Data মানে Raw Facts বা কেঁচা তথ্য।\nযিবোৰ তথ্য Process কৰা হোৱা নাই তাক Data বুলি কোৱা হয়।\n\nউদাহৰণ:\n\nStudent Name\nRoll Number\nMarks\nAddress\nPhone Number\n\nData ৰ প্ৰকাৰসমূহ:\n\nText Data\nNumeric Data\nAudio Data\nVideo Data\nImage Data"
+          },
+          {
+            "title": "3. Information",
+            "content": "Processed Data ক Information বুলি কোৱা হয়।\n\nঅর্থাৎ যেতিয়া Data ক process কৰি Meaningful Result পোৱা যায় তেতিয়া তাক Information বুলি কোৱা হয়।\n\nউদাহৰণ:\n\nStudent ৰ Percentage\nResult Sheet\nSalary Report\n\nData → Processing → Information"
+          },
+          {
+            "title": "4. Database",
+            "content": "Database হৈছে logically related data ৰ collection।\nDatabase ত data organized way ত store কৰা হয় যাতে সহজে access, manage আৰু retrieve কৰিব পাৰি।\n\nDatabase ৰ সুবিধা:\n\nFast Access\nEasy Retrieval\nEasy Update\nData Sharing\nBetter Security"
+          },
+          {
+            "title": "5. File System",
+            "content": "Computer ত data file আকাৰত store কৰা পদ্ধতিক File System বুলি কোৱা হয়।\n\nউদাহৰণ:\n\nText File\nSpreadsheet File\nDocument File\n\nFile System ত data manually maintain কৰিব লাগে। বৃহৎ data manage কৰাটো কঠিন হয়।"
+          },
+          {
+            "title": "6. Limitations of File System",
+            "content": "(i) Data Redundancy\n\nএকেই Data বহু file ত repeated ভাবে store হোৱাক Data Redundancy বুলি কোৱা হয়।\n\nউদাহৰণ:\nStudent name একাধিক file ত থাকিব পাৰে।\n\nProblems:\nStorage waste হয়\nData inconsistency হয়\n\n(ii) Data Inconsistency\n\nDifferent file ত একেই data different হলে তাক Data Inconsistency বুলি কোৱা হয়।\n\nউদাহৰণ:\nএটা file ত “Rahim” আৰু আনটোত “Rahman” লিখা।\n\n(iii) Data Isolation\n\nFile সমূহৰ মাজত relationship নাথাকে।\nসেইবাবে data combine কৰি retrieve কৰাটো কঠিন হয়।\n\n(iv) Data Dependence\n\nFile structure change কৰিলে program ও change কৰিব লাগে।\n\n(v) Controlled Data Sharing\n\nDifferent user ক different permission দিয়াটো কঠিন।\nSecurity maintain কৰাটোও কঠিন।"
+          },
+          {
+            "title": "7. DBMS (Database Management System)",
+            "content": "DBMS হৈছে database create, manage আৰু maintain কৰাৰ software।\n\nই user আৰু database ৰ মাজত interface হিচাপে কাম কৰে।\n\nPopular DBMS:\n\nMySQL\nOracle\nPostgreSQL\nSQL Server\nMS Access"
+          },
+          {
+            "title": "8. Advantages of DBMS",
+            "content": "1. Reduces Data Redundancy\n\nRepeated data কমায়।\n\n2. Data Security\n\nUnauthorized access ৰ পৰা data protect কৰে।\n\n3. Backup and Recovery\n\nData loss হ’লে backup restore কৰিব পাৰি।\n\n4. Data Sharing\n\nMultiple user এ একেলগে data use কৰিব পাৰে।\n\n5. Data Consistency\n\nসব file ত same data maintain হয়।\n\n6. Fast Query Processing\n\nData খুব দ্রুত retrieve কৰিব পাৰি।\n\n7. Data Integrity\n\nCorrectness আৰু accuracy বজাই ৰাখে।"
+          },
+          {
+            "title": "9. Disadvantages of DBMS",
+            "content": "Cost বেছি\nComplex system\nHardware আৰু software দরকাৰ\nTraining লাগিব পাৰে\nSystem failure হলে সমস্যা হয়"
+          },
+          {
+            "title": "10. Difference Between File System and DBMS",
+            "content": "File System\t                       DBMS\nData redundancy বেছি\t         Data redundancy কম\nSecurity কম\t                 High security\nBackup নাই\t                 Backup available\nData inconsistency বেছি\tData     consistency বজাই ৰাখে\nRelationship নাই\t         Table relationship থাকে\nAccess difficult\t         Access easy"
+          }
+        ]
+      }
+    }
   }
 }
