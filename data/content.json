@@ -231,10 +231,6 @@
           {
             "title": "9. Disadvantages of DBMS",
             "content": "Cost বেছি\nComplex system\nHardware আৰু software দরকাৰ\nTraining লাগিব পাৰে\nSystem failure হলে সমস্যা হয়"
-          },
-          {
-            "title": "10. Difference Between File System and DBMS",
-            "content": "File System\t                       DBMS\nData redundancy বেছি\t         Data redundancy কম\nSecurity কম\t                 High security\nBackup নাই\t                 Backup available\nData inconsistency বেছি\tData     consistency বজাই ৰাখে\nRelationship নাই\t         Table relationship থাকে\nAccess difficult\t         Access easy"
           }
         ]
       }
