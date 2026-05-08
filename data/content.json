@@ -231,6 +231,50 @@
           {
             "title": "9. Disadvantages of DBMS",
             "content": "Cost বেছি\nComplex system\nHardware আৰু software দরকাৰ\nTraining লাগিব পাৰে\nSystem failure হলে সমস্যা হয়"
+          },
+          {
+            "title": "10. Database Schema",
+            "content": "Database ৰ overall design ক Database Schema বুলি কোৱা হয়।\n\nই Table structure, attributes, data types আৰু relationships define কৰে।"
+          },
+          {
+            "title": "11. Database Instance",
+            "content": "Database ৰ current state বা snapshot ক Database Instance বুলি কোৱা হয়।"
+          },
+          {
+            "title": "12. Query",
+            "content": "Database ৰ পৰা information retrieve কৰাৰ request ক Query বুলি কোৱা হয়।\n\nউদাহৰণ:\n\nFind all students\nShow marks above 80\n\nQuery লিখিবলৈ SQL ব্যৱহাৰ কৰা হয়।"
+          },
+          {
+            "title": "13. Data Manipulation",
+            "content": "Database ত data insert, update আৰু delete কৰাৰ process ক Data Manipulation বুলি কোৱা হয়।\n\nOperations:\n\nInsertion\nDeletion\nUpdation"
+          },
+          {
+            "title": "14. Important Terms in Relational Data Model",
+            "content": "(i) Relation\n\nTable ক Relation বুলি কোৱা হয়।\n\n(ii) Attribute\n\nColumn ক Attribute বুলি কোৱা হয়।\n\n(iii) Tuple\n\nRow ক Tuple বুলি কোৱা হয়।\n\n(iv) Domain\n\nPossible values ৰ set ক Domain বুলি কোৱা হয়।\n\n(v) Degree\n\nNumber of attributes in a table।\n\n(vi) Cardinality\n\nNumber of rows in a table।"
+          },
+          {
+            "title": "15. Properties of Relation",
+            "content": "i) Attribute name unique হব লাগিব।\n ii) Tuple unique হব লাগিব।\n iii) Data same domain ৰ হব লাগিব।\n iv) NULL value allowed হব পাৰে।\n v) Sequence important নহয়।"
+          },
+          {
+            "title": "16. Keys in RDBMS",
+            "content": "(i) Candidate Key\n\nযি attribute unique value ৰাখে।\n\n(ii) Primary Key\n\nTable ৰ unique identifier।\n\nFeatures:\n\nUnique\nNULL নহয়\n(iii) Composite Key\n\nMultiple attribute মিলে primary key।\n\n(iv) Foreign Key\n\nদুটা table link কৰিবলৈ ব্যৱহাৰ হয়।"
+          },
+          {
+            "title": "17. SQL (Structured Query Language)",
+            "content": "SQL হৈছে relational database manage কৰাৰ language।\n\nSQL ৰ ব্যৱহাৰ:\n\ni. Create database\nii. Create table\niii. Insert data\niv. Update data\nv. Delete data\nvi. Retrieve data"
+          },
+          {
+            "title": "18. Data Types in MySQL",
+            "content": "i. Character Types\n    CHAR\n    VARCHAR\nii. Numeric Types\n     INT\n     FLOAT\niii. Date Type\n     DATE"
+          },
+          {
+            "title": "19. Constraints in SQL",
+            "content": "1. NOT NULL\n\nNULL value allow নকৰে।\n\n2. UNIQUE\n\nDuplicate value allow নকৰে।\n\n3. DEFAULT\n\nDefault value set কৰে।\n\n4. PRIMARY KEY\n\nUnique identification কৰে।\n\n5. FOREIGN KEY\n\nTable relationship create কৰে।"
+          },
+          {
+            "title": "20. Types of SQL Commands",
+            "content": "(i) DDL – Data Definition Language\n\nDatabase structure define কৰে।\n\nCommands:\n\nCREATE\nALTER\nDROP\n(ii) DML – Data Manipulation Language\n\nData manipulate কৰে।\n\nCommands:\n\nINSERT\nUPDATE\nDELETE\n(iii) DQL – Data Query Language\n\nData retrieve কৰে।\n\nCommand:\n\nSELECT\n\n(iv) DCL – Data Control Language\n\nPermission control কৰে।\n\nCommands:\n\nGRANT\nREVOKE\n(v) TCL – Transaction Control Language\n\nTransaction control কৰে।\n\nCommands:\n\nCOMMIT\nROLLBACK"
           }
         ]
       }
