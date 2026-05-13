@@ -78,7 +78,7 @@ if(location.pathname.includes("chapter.html")){
 
 
 // ==========================
-// 🔹 LOAD CONTENT
+// 🔹 LOAD CONTENT WITH PAGINATION
 // ==========================
 if(location.pathname.endsWith("content.html")){
 
@@ -88,22 +88,46 @@ if(location.pathname.endsWith("content.html")){
     let ch = localStorage.getItem("chapter");
 
     let box = document.getElementById("content");
+    const QUESTIONS_PER_PAGE = 3;
+    let currentPage = 1;
 
     if(box && DATA[cls] && DATA[cls][sub] && DATA[cls][sub][cat] && DATA[cls][sub][cat][ch]){
 
-        box.innerHTML = "";
+        let allQuestions = DATA[cls][sub][cat][ch];
 
-        DATA[cls][sub][cat][ch].forEach(item => {
-            box.innerHTML += `
-            <div class="content-box">
-                <h3 class="question">${item.title}</h3>
-                <p class="answer">${item.content.replace(/\n/g,"<br>")}</p>
-            </div>`;
-        });
+        function renderPage(page){
+            currentPage = page;
+            box.innerHTML = "";
+
+            let start = (page - 1) * QUESTIONS_PER_PAGE;
+            let end = start + QUESTIONS_PER_PAGE;
+            let questions = allQuestions.slice(start, end);
+
+            questions.forEach(item => {
+                box.innerHTML += `
+                <div class="content-box">
+                    <h3 class="question">${item.title}</h3>
+                    <p class="answer">${item.content.replace(/\n/g,"<br>")}</p>
+                </div>`;
+            });
+
+            let totalPages = Math.ceil(allQuestions.length / QUESTIONS_PER_PAGE);
+
+            if(totalPages > 1){
+                box.innerHTML += `<div style="text-align:center;margin-top:20px;">`;
+
+                for(let i=1;i<=totalPages;i++){
+                    box.innerHTML += `<button onclick="renderPage(${i})">${i}</button>`;
+                }
+
+                box.innerHTML += `</div>`;
+            }
+        }
+
+        window.renderPage = renderPage;
+        renderPage(1);
 
     } else {
         box.innerHTML = "No content available";
     }
-}
-
 }
