@@ -78,75 +78,32 @@ if(location.pathname.includes("chapter.html")){
 
 
 // ==========================
-// 🔹 LOAD CONTENT WITH PAGINATION
+// 🔹 LOAD CONTENT
 // ==========================
 if(location.pathname.endsWith("content.html")){
 
     let cls = localStorage.getItem("class");
+    let sub = localStorage.getItem("subject");
     let cat = localStorage.getItem("category");
     let ch = localStorage.getItem("chapter");
 
     let box = document.getElementById("content");
-    let breadcrumb = document.getElementById("breadcrumb");
 
-    const QUESTIONS_PER_PAGE = 3;
-    let currentPage = 1;
-    let allItems = [];
+    if(box && DATA[cls] && DATA[cls][sub] && DATA[cls][sub][cat] && DATA[cls][sub][cat][ch]){
 
-    if(breadcrumb){
-        breadcrumb.innerText = `Class ${cls} > ${cat} > ${ch}`;
-    }
+        box.innerHTML = "";
 
-    function renderPage(page){
-        currentPage = page;
-
-        let start = (page - 1) * QUESTIONS_PER_PAGE;
-        let end = start + QUESTIONS_PER_PAGE;
-        let items = allItems.slice(start, end);
-
-        let html = "";
-
-        items.forEach(item=>{
-            const isAssamese = /[\u0980-\u09FF]/.test(item.content);
-
-            html += `
+        DATA[cls][sub][cat][ch].forEach(item => {
+            box.innerHTML += `
             <div class="content-box">
                 <h3 class="question">${item.title}</h3>
-                <p class="answer ${isAssamese ? 'assamese' : ''}">
-                    ${item.content.replace(/\n/g,"<br>")}
-                </p>
+                <p class="answer">${item.content.replace(/\n/g,"<br>")}</p>
             </div>`;
         });
 
-        let totalPages = Math.ceil(allItems.length / 3);
-
-        if(totalPages > 1){
-            html += `<div style="text-align:center;margin-top:20px;">`;
-
-            for(let i=1;i<=totalPages;i++){
-                html += `<button onclick="renderPage(${i})">${i}</button>`;
-            }
-
-            html += `</div>`;
-        }
-
-        box.innerHTML = html || "No content available";
+    } else {
+        box.innerHTML = "No content available";
     }
+}
 
-    window.renderPage = renderPage;
-
-    db.collection("notes")
-    .where("class","==",cls)
-    .where("category","==",cat)
-    .where("chapter","==",ch)
-    .onSnapshot(snapshot => {
-
-        allItems = [];
-
-        snapshot.forEach(doc=>{
-            allItems.push(doc.data());
-        });
-
-        renderPage(1);
-    });
 }
