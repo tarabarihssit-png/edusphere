@@ -131,3 +131,4 @@ if(location.pathname.endsWith("content.html")){
         box.innerHTML = "No content available";
     }
 }
+}
