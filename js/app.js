@@ -99,6 +99,8 @@ if(location.pathname.endsWith("content.html")){
             currentPage = page;
             box.innerHTML = "";
 
+            box.scrollIntoView({ behavior: "smooth" });
+
             let start = (page - 1) * QUESTIONS_PER_PAGE;
             let end = start + QUESTIONS_PER_PAGE;
             let questions = allQuestions.slice(start, end);
@@ -114,10 +116,41 @@ if(location.pathname.endsWith("content.html")){
             let totalPages = Math.ceil(allQuestions.length / QUESTIONS_PER_PAGE);
 
             if(totalPages > 1){
-                box.innerHTML += `<div style="text-align:center;margin-top:20px;">`;
+                box.innerHTML += `
+                <div style="text-align:center;margin-top:25px;">
+
+                    ${currentPage > 1
+                        ? `<button onclick="renderPage(${currentPage - 1})"
+                            style="margin:5px;padding:10px 15px;border:none;border-radius:8px;background:#2563eb;color:white;cursor:pointer;">
+                            Previous
+                           </button>`
+                        : ''
+                    }
+                `;
 
                 for(let i=1;i<=totalPages;i++){
-                    box.innerHTML += `<button onclick="renderPage(${i})">${i}</button>`;
+                    box.innerHTML += `
+                    <button onclick="renderPage(${i})"
+                    style="
+                        margin:5px;
+                        padding:10px 15px;
+                        border:none;
+                        border-radius:8px;
+                        cursor:pointer;
+                        ${i === currentPage
+                            ? 'background:#16a34a;color:white;font-weight:bold;'
+                            : 'background:#e5e7eb;color:black;'}
+                    ">
+                    ${i}
+                    </button>`;
+                }
+
+                if(currentPage < totalPages){
+                    box.innerHTML += `
+                    <button onclick="renderPage(${currentPage + 1})"
+                    style="margin:5px;padding:10px 15px;border:none;border-radius:8px;background:#2563eb;color:white;cursor:pointer;">
+                    Next
+                    </button>`;
                 }
 
                 box.innerHTML += `</div>`;
