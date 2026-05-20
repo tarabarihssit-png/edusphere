@@ -141,11 +141,81 @@
       "Domestic": {
         "CH1. Introduction to Styles": [
           {
-            "title": "Definition of a Style (ষ্টাইল (Style) কি)",
-            "content": "A style is a collection of formatting information that you save and then apply to a document.\n\nষ্টাইল হৈছে কিছুমান ফৰ্মেটিং তথ্যৰ সংগ্ৰহ, যাক সংৰক্ষণ কৰি পিছত নথিপত্ৰত (document) প্ৰয়োগ কৰিব পাৰি ।"
+            "title": "1. What is a Style? ( Style কি?)",
+            "content": "Style is a formatting tool that helps apply the same design settings to text or pages quickly. It improves the appearance of documents.\n\nStyle হৈছে এনে এটা formatting tool যাৰ সহায়ত text বা page ত একে ধৰণৰ design সহজে প্ৰয়োগ কৰিব পাৰি। ইয়াৰ ফলত document অধিক সুন্দৰ হয়।"
+          },
+          {
+            "title": "2. What are the advantages of using styles? (Styles ব্যৱহাৰ কৰাৰ সুবিধাসমূহ কি কি?)",
+            "content": "i. Saves time\nii. Maintains uniform formatting\niii. Makes document attractive\niv. Easy editing\nv. Better organization\n\ni. সময় বচায়\nii. একে ধৰণৰ formatting ৰাখে\niii. document আকৰ্ষণীয় কৰে\niv. সম্পাদনা সহজ হয়\nv. উত্তম সংগঠন"
+          },
+          {
+            "title": "3. What is Character Style? (Character Style কি?)",
+            "content": "Character Style is used to format selected characters or words like changing font, size, bold, italic, etc.\n\nCharacter Style ব্যৱহাৰ কৰি নিৰ্বাচিত শব্দ বা অক্ষৰৰ font, size, bold, italic আদি সলনি কৰিব পাৰি।"
+          },
+          {
+            "title": "4. What is Page Style? (Page Style কি?)",
+            "content": "Page Style is used to change page settings such as margin, background, page size, and orientation.\n\nPage Style ব্যৱহাৰ কৰি page ৰ margin, background, size আৰু orientation সলনি কৰিব পাৰি।"
+          },
+          {
+            "title": "5. What is List Style?",
+            "content": "List Style is used to format bullets and numbering in a document.\n\nDocument ত bullets আৰু numbering format কৰিবলৈ List Style ব্যৱহাৰ কৰা হয়।"
+          },
+          {
+            "title": "6. What is Frame Style?",
+            "content": "Frame Style is used to format frames, images, and text boxes.\n\nFrame Style ব্যৱহাৰ কৰি frame, image আৰু text box format কৰিব পাৰি।"
+          },
+          {
+            "title": "7. Explain the importance of styles in a document. (Document ত styles ৰ গুৰুত্ব ব্যাখ্যা কৰা।)",
+            "content": "Styles are very useful while preparing documents. They help keep the entire document in a uniform format. Instead of formatting each heading or paragraph separately, styles allow quick formatting in one step. This saves time and improves the document’s appearance. Editing also becomes easier because one change can update similar content.\n\n\nDocument প্ৰস্তুত কৰোঁতে styles বহুত উপকাৰী। ইয়াৰ সহায়ত সম্পূৰ্ণ document ত একে ধৰণৰ formatting বজাই ৰাখিব পাৰি। প্ৰতিটো heading বা paragraph বেলেগে format কৰাৰ সলনি, style ব্যৱহাৰ কৰি সহজে formatting কৰিব পাৰি। ইয়াৰ ফলত সময় বচে আৰু document অধিক সুন্দৰ দেখা যায়। সম্পাদনাও সহজ হয়।"
+          },
+          {
+            "title": "8. Describe different types of styles in LibreOffice Writer.  (LibreOffice Writer ত থকা বিভিন্ন ধৰণৰ styles বৰ্ণনা কৰা।)",
+            "content": "LibreOffice Writer provides different types of styles:\n\nParagraph Style: Used for formatting complete paragraphs like alignment, spacing, indentation, etc.\n\nCharacter Style: Used for formatting selected text such as font, size, bold, italic, etc.\n\nPage Style: Used for changing page settings like margin, background, page size, and orientation.\n\nFrame Style: Used for formatting frames, images, and text boxes.\n\nList Style: Used for formatting bullets and numbering.\n\n\n\nLibreOffice Writer ত বিভিন্ন ধৰণৰ styles থাকে—\n\nParagraph Style: সম্পূৰ্ণ paragraph format কৰিবলৈ ব্যৱহাৰ কৰা হয়।\n\nCharacter Style: নিৰ্বাচিত text format কৰিবলৈ ব্যৱহাৰ কৰা হয়।\n\nPage Style: page ৰ settings সলনি কৰিবলৈ ব্যৱহাৰ কৰা হয়।\n\nFrame Style: frame, image আৰু text box format কৰিবলৈ ব্যৱহাৰ কৰা হয়।\n\nList Style: bullets আৰু numbering format কৰিবলৈ ব্যৱহাৰ কৰা হয়।"
+          },
+          {
+            "title": "9. How can you apply a style in LibreOffice Writer?  (LibreOffice Writer ত style কেনেকৈ apply কৰিব পাৰি?)",
+            "content": "Steps to apply a style:\n\nOpen LibreOffice Writer.\nSelect the text or paragraph.\nPress F11 to open Styles window.\nChoose the required style category.\nDouble-click the selected style.\n\n\n\nStyle apply কৰাৰ ধাপসমূহ—\n\nLibreOffice Writer খোলক।\ntext বা paragraph নিৰ্বাচন কৰক।\nF11 টিপি Styles window খোলক।\nপ্রয়োজনীয় style নির্বাচন কৰক।\nstyle ত double-click কৰক।"
+          },
+          {
+            "title": "10. What is a digital image? (ডিজিটেল ইমেজ কি?)",
+            "content": "A digital image is an electronic picture created using many small picture elements known as pixels. These pixels together form a complete image that can be viewed on digital devices such as computers, mobile phones, and televisions.\n\n\nডিজিটেল ইমেজ হৈছে ইলেক্ট্ৰনিক ৰূপত থকা এখন ছবি, যি বহুতো ক্ষুদ্ৰ ছবি বিন্দু অৰ্থাৎ পিক্সেলৰ সমষ্টিৰে গঠিত। এই পিক্সেলসমূহ একেলগে মিলি সম্পূৰ্ণ ছবি তৈয়াৰ কৰে, যাক কম্পিউটাৰ, মোবাইল ফোন আৰু টেলিভিছনৰ দৰে ডিজিটেল ডিভাইচত দেখা যায়।"
+          },
+          {
+            "title": "11. How can we insert an image in a document? (আমি কেনেকৈ এটা নথিপত্ৰত ছবি insert কৰিব পাৰো?)",
+            "content": "We can insert an image in a document using the Insert menu.\nClick Insert → Picture → Select image → Insert.\n\n\n\nInsert মেনুৰ সহায়ত document ত ছবি সন্নিবিষ্ট কৰিব পাৰি।\nInsert → Picture → ছবিখন নিৰ্বাচন কৰক → Insert।"
+          },
+          {
+            "title": "12. What do you mean by resizing an image? (ছবি এখনৰ আকাৰ সলনি কৰিলে কি বুজায়?)",
+            "content": "Resizing an image means changing its height and width to make it bigger or smaller.\n\n\n\nছবি এখনৰ আকাৰ সলনি কৰাৰ অৰ্থ হৈছে ইয়াৰ উচ্চতা আৰু প্ৰস্থ সলনি কৰি ডাঙৰ বা সৰু কৰা।"
+          },
+          {
+            "title": "13. How can we delete an image from a document? (আমি এটা নথিপত্ৰৰ পৰা ছবি এখন কেনেকৈ মচি পেলাব পাৰো?)",
+            "content": "We can delete an image from a document by selecting the image and pressing the Delete or Backspace key.\n\n\n\nছবিখন নিৰ্বাচন কৰি Delete বা Backspace key টিপি document ৰ পৰা মচি পেলাব পাৰি।"
+          },
+          {
+            "title": "14. What is anchoring? (Anchoring কি?)",
+            "content": "Anchoring is a feature that attaches an image to a specific position in a document and controls how it moves when the surrounding text changes.\n\n\nAnchoring হৈছে এনে এটা feature যিয়ে ছবিখন document ৰ এটা নিৰ্দিষ্ট স্থানত সংযুক্ত কৰি ৰাখে আৰু চাৰিওফালৰ text সলনি হলে ছবিখন কেনেকৈ স্থান সলনি কৰিব সেয়া নিয়ন্ত্ৰণ কৰে।"
+          },
+          {
+            "title": "15. How can we view the Drawing toolbar? (অংকন সঁজুলিদণ্ডীটো আমি কেনেকৈ চাব পাৰো?)",
+            "content": "We can view the Drawing toolbar by clicking View → Toolbars → Drawing.\n\n\n\nView → Toolbars → Drawing ত ক্লিক কৰি Drawing toolbar চাব পাৰি।"
+          },
+          {
+            "title": "16. What are the options available in Text Wrapping? (টেক্সট ৰেপিঙত কি কি বিকল্প উপলব্ধ?)",
+            "content": "The options available in Text Wrapping are In Line with Text, Square, Tight, Behind Text, In Front of Text, Top and Bottom, and Through.\n\n\n\nText Wrapping ত উপলব্ধ বিকল্পসমূহ হৈছে In Line with Text, Square, Tight, Behind Text, In Front of Text, Top and Bottom, আৰু Through।"
+          },
+          {
+            "title": "17. Write the name of four settings which controls positioning of an image. (চাৰিটা ছেটিংছৰ নাম লিখা যিয়ে এটা ছবিৰ অৱস্থান নিয়ন্ত্ৰণ কৰে।)",
+            "content": "The four settings that control the positioning of an image are:\ni. Alignment\nii. Wrapping style\niii. Anchor\niv. Position\n\nছবি এখনৰ অৱস্থান নিয়ন্ত্ৰণ কৰা চাৰিটা ছেটিংছ হ'ল:\n\ni. প্ৰান্তিককৰণ\nii. ৰেপিং ষ্টাইল\niii. লংগৰ\niv. অৱস্থান"
+          },
+          {
+            "title": "18. How can we insert an image in a document using the drag and drop option?  (ড্ৰেগ এণ্ড ড্ৰপ বিকল্প ব্যৱহাৰ কৰি আমি কেনেকৈ এটা ডকুমেণ্টত এটা ছবি যোগ কৰিব পাৰো?)",
+            "content": "Answer (English): We can insert an image into a document using the drag and drop option by clicking and holding the image file, dragging it into the document, and then releasing the mouse button.  \n\n\n\nছবি ফাইলটো ক্লিক কৰি ধৰি ৰাখি, document লৈ drag কৰি আৰু mouse button এৰি দি drag and drop বিকল্প ব্যৱহাৰ কৰি ছবি যোগ কৰিব পাৰি।"
           }
         ]
-      },
+      }
+    }
+  },
       "Employability": {
         "Unit 1. Communication Skills": [
           {
