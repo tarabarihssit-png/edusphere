@@ -1,167 +1,104 @@
-/* GOOGLE FONTS (add in HTML head also) */
-/* Poppins + Noto Sans Bengali */
+/* MODERN PREMIUM THEME */
 
-/* RESET */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
 body {
     margin: 0;
+    padding: 0;
     font-family: 'Poppins', sans-serif;
-    background: #f4f7fb;
-    font-size: 16px;
+    /* Ek premium deep gradient background */
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    min-height: 100vh;
+    color: #ffffff;
 }
 
-/* Assamese text fix */
-.assamese {
-    font-family: 'Noto Sans Bengali', sans-serif;
-    font-weight: 500;
-    font-size: 17px;
-    line-height: 1.7;
-    color: #222;
-}
-
-/* HEADER */
+/* HEADER - Clean and Elevated */
 .header {
-    background: linear-gradient(135deg,#1e3c72,#2a5298);
-    color: white;
-    padding: 20px;
     text-align: center;
+    padding: 40px 20px;
 }
 
-/* LOGO */
 .logo {
-    width: 160px;
-    margin-bottom: 10px;
+    width: 140px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+}
+
+.header p {
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #94a3b8;
+    text-transform: uppercase;
 }
 
 /* CONTAINER */
 .container {
-    width: 100%;
-    max-width: 420px;
-    margin: auto;
+    max-width: 900px;
+    margin: 0 auto;
     padding: 20px;
-    text-align: center;
-}
-
-/* HEADINGS */
-h1, h2 {
-    text-align: center;
-    margin-bottom: 15px;
 }
 
 /* GRID */
 .grid {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
 }
 
-/* =========================
-   BUTTON CARDS (TOPICS)
-========================= */
+/* CARDS - Glassmorphism Magic */
 .card {
-    width: 100%;
-    background: white;
-    padding: 18px;
-    border-radius: 15px;
-
-    font-size: 18px;
-    font-weight: 500;
+    /* Glass Effect */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    padding: 40px 20px;
+    border-radius: 24px;
     text-align: center;
-
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    transition: 0.25s;
-    cursor: pointer;
-}
-
-/* Hover */
-.card:hover {
-    background: #2a5298;
-    color: white;
-    transform: translateY(-3px);
-}
-
-/* Click */
-.card:active {
-    transform: scale(0.96);
-}
-
-/* LINKS */
-a {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-/* =========================
-   CONTENT (Q&A STYLE)
-========================= */
-
-#content {
-    text-align: left;
-    margin-top: 10px;
-}
-
-/* Content Box */
-.content-box {
-    background: #ffffff;
-    padding: 15px;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-/* Question */
-.question {
-    font-size: 18px;
+    font-size: 1.2rem;
     font-weight: 600;
-    margin-bottom: 6px;
-    color: #2a5298;
-}
-
-/* Answer */
-.answer {
-    font-size: 16px;
-    line-height: 1.8;
-    color: #444;
-}
-
-/* =========================
-   BUTTON
-========================= */
-button {
-    padding: 10px;
-    border: none;
-    background: #2a5298;
-    color: white;
-    border-radius: 8px;
-    margin-bottom: 10px;
+    color: #ffffff;
     cursor: pointer;
-    transition: 0.2s;
+    
+    /* Animation */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
-button:hover {
-    opacity: 0.9;
+.card:hover {
+    transform: translateY(-12px) scale(1.02);
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #38bdf8; /* Cyan Glow on hover */
+    box-shadow: 0 20px 40px 0 rgba(56, 189, 248, 0.3);
 }
 
-/* =========================
-   MOBILE RESPONSIVE
-========================= */
+/* FOOTER LINKS */
+.container:last-child {
+    margin-top: 60px;
+    text-align: center;
+    color: #475569;
+}
+
+.container a {
+    color: #64748b;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.container a:hover {
+    color: #38bdf8;
+}
+
+/* Mobile Responsive */
 @media (max-width: 600px) {
-
-    .container {
-        max-width: 100%;
-        padding: 18px;
+    .grid {
+        grid-template-columns: 1fr;
     }
-
     .card {
-        font-size: 19px;
-        padding: 20px;
-    }
-
-    h1 {
-        font-size: 22px;
-    }
-
-    h2 {
-        font-size: 19px;
+        padding: 30px;
     }
 }
