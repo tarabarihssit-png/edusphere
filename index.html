@@ -1,87 +1,1472 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth dark">
 <head>
-    <title>Sharif Studio</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- ✅ GOOGLE FONT -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-
-    <!-- ✅ CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <title>Sharif Studio - Premium Educational Hub & Student Tools</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2840090070823657"
-     crossorigin="anonymous"></script>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WZD4Y37FW3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-WZD4Y37FW3');
-</script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        /* Glassmorphism Classes */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .dark .glass-nav {
+            background: rgba(15, 23, 42, 0.85);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #475569;
+        }
+        /* Printable Resume Style Override */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printable-resume-area, #printable-resume-area * {
+                visibility: visible;
+            }
+            #printable-resume-area {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+        }
+    </style>
 </head>
+<body class="dark bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
 
-<body>
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 glass-nav border-b border-slate-200 dark:border-slate-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Brand Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="navigateTo('home')">
+                    <div class="w-10 h-10 bg-gradient-to-tr from-primary-600 to-secondary-600 rounded-xl flex items-center justify-center text-white shadow-md shadow-primary-500/20">
+                        <i class="fa-solid fa-graduation-cap text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="font-extrabold text-xl tracking-tight bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">Sharif Studio</span>
+                        <p class="text-[9px] font-semibold text-slate-500 dark:text-slate-400 tracking-widest uppercase">EduSphere Portal</p>
+                    </div>
+                </div>
 
-<header class="header">
+                <!-- Desktop Nav Navigation -->
+                <nav class="hidden md:flex space-x-1 lg:space-x-3 text-sm font-medium">
+                    <button onclick="navigateTo('home')" class="nav-btn px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Home</button>
+                    <button onclick="window.location.href='edusphere.html'" class="nav-btn px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition">EduSphere</button>
+                    <button onclick="navigateTo('tools')" class="nav-btn px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Student Tools</button>                                       
+                    <button onclick="navigateTo('blog')" class="nav-btn px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Blog</button>
+                    <button onclick="navigateTo('about')" class="nav-btn px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition">About</button>
+                </nav>
 
-    <!-- 🔰 LOGO -->
-    <img src="image/logo.png" class="logo" alt="EduSphere Logo">
+                <!-- Action Controls (Theme, Search, Mobile Toggle) -->
+                <div class="flex items-center gap-2">
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition" aria-label="Toggle dark mode">
+                        <i id="theme-icon" class="fa-solid fa-moon text-slate-600 dark:text-slate-300"></i>
+                    </button>
+                                        
+                    <!-- Mobile Navigation Menu Toggle -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+                        <i class="fa-solid fa-bars text-slate-600 dark:text-slate-300" id="mobile-menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
 
-    <!-- 🔰 TITLE -->
-    <h1>Sharif Studio</h1>
-    <p>Select Class</p>
+        <!-- Mobile Nav Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 transition-all">
+            <div class="px-2 pt-2 pb-4 space-y-1">
+                <button onclick="navigateTo('home'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 font-medium">Home</button>
+                <button onclick="window.location.href='edusphere.html'" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 font-medium">EduSphere</button>
+                <button onclick="navigateTo('tools'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 font-medium">Student Tools</button>            
+                
+                <button onclick="navigateTo('blog'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 font-medium">Blog & Notifications</button>
+                <button onclick="navigateTo('about'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 font-medium">About & Contact</button>
+            </div>
+        </div>
+    </header>
 
-</header>
+    
+    <!-- Main Dynamic Application Container -->
+    <main class="flex-grow">
 
-<!-- 📦 MAIN CONTENT -->
-<div class="container">
+        <!-- SECTION 1: HOME PAGE -->
+        <section id="sec-home" class="page-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+           
+            <!-- Hero Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-600 dark:text-primary-300 text-xs font-semibold tracking-wide uppercase">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        Assam Educational Resource Engine
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                        Empowering Students with <span class="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">Premium Notes</span> & Quick Utilities.
+                    </h1>
+                    <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
+                        Welcome to <strong class="text-primary-600 dark:text-primary-400">Sharif Studio</strong>, the definitive hub for Assam Board (SEBA/AHSEC) vocational curriculums (IT/ITeS, Retail, CRM) alongside advanced client-side utilities built to streamline student workflows.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="window.location.href='edusphere.html'" class="px-6 py-3 bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 text-white font-semibold rounded-xl shadow-lg shadow-primary-500/20 transition-all flex items-center gap-2">
+                            Explore Study Materials <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        <button onclick="navigateTo('tools')" class="px-6 py-3 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-semibold rounded-xl transition-all flex items-center gap-2">
+                            Access Student Tools <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </button>
+                    </div>
+                </div>
 
-    <div class="grid">
-        <div class="card" onclick="goClass(9)">Class 9</div>
-        <script>
-(function(woe){
-var d = document,
-    s = d.createElement('script'),
-    l = d.scripts[d.scripts.length - 1];
-s.settings = woe || {};
-s.src = "\/\/masculine-employment.com\/b\/X\/VEs.dRGFlh0gY\/WTcj\/cehmK9suvZYUSl_kQPSTVc\/w-MPzUMm0\/OjTGMet\/NCzqAlzoMEzRQ\/5_NewY";
-s.async = true;
-s.referrerPolicy = 'no-referrer-when-downgrade';
-l.parentNode.insertBefore(s, l);
-})({})
-</script>
-        <div class="card" onclick="goClass(10)">Class 10</div>
-        <div class="card" onclick="goClass(11)">Class 11</div>
-        <script>
-(function(vxfci){
-var d = document,
-    s = d.createElement('script'),
-    l = d.scripts[d.scripts.length - 1];
-s.settings = vxfci || {};
-s.src = "\/\/masculine-employment.com\/bnX\/VAsHd.GSl\/0PYcWfcg\/QeBmL9luKZpUllbkjPQTVc\/w\/MFzbMQ2SNFjXkct\/NkznA\/zaM\/zQY_3DMewO";
-s.async = true;
-s.referrerPolicy = 'no-referrer-when-downgrade';
-l.parentNode.insertBefore(s, l);
-})({})
-</script>
-        <div class="card" onclick="goClass(12)">Class 12</div>
+                <div class="lg:col-span-5">
+                    <!-- Dynamic Countdown Board & Floating Stats -->
+                    <div class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-950 rounded-3xl p-6 text-white shadow-2xl relative overflow-hidden border border-slate-800">
+                        <div class="absolute -right-12 -top-12 w-44 h-44 bg-primary-500/20 rounded-full blur-3xl"></div>
+                        <div class="absolute -left-12 -bottom-12 w-44 h-44 bg-secondary-500/20 rounded-full blur-3xl"></div>
+                        
+                        <div class="relative z-10 space-y-6">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs uppercase tracking-widest text-primary-400 font-bold">Upcoming Exam Clock</span>
+                                <span class="px-2 py-1 rounded bg-red-500/30 text-red-300 text-[10px] uppercase font-bold tracking-wider animate-pulse">SEBA/AHSEC 2027</span>
+                            </div>
+                            
+                            <h3 class="text-xl font-bold tracking-tight">Board Examinations Countdown</h3>
+                            
+                            <!-- Countdown Counter Rows -->
+                            <div class="grid grid-cols-4 gap-2 text-center">
+                                <div class="bg-white/10 backdrop-blur-md rounded-xl p-3">
+                                    <span id="timer-days" class="block text-2xl sm:text-3xl font-extrabold text-primary-300">00</span>
+                                    <span class="text-[9px] uppercase tracking-wider text-slate-300">Days</span>
+                                </div>
+                                <div class="bg-white/10 backdrop-blur-md rounded-xl p-3">
+                                    <span id="timer-hours" class="block text-2xl sm:text-3xl font-extrabold text-primary-300">00</span>
+                                    <span class="text-[9px] uppercase tracking-wider text-slate-300">Hours</span>
+                                </div>
+                                <div class="bg-white/10 backdrop-blur-md rounded-xl p-3">
+                                    <span id="timer-mins" class="block text-2xl sm:text-3xl font-extrabold text-primary-300">00</span>
+                                    <span class="text-[9px] uppercase tracking-wider text-slate-300">Mins</span>
+                                </div>
+                                <div class="bg-white/10 backdrop-blur-md rounded-xl p-3">
+                                    <span id="timer-secs" class="block text-2xl sm:text-3xl font-extrabold text-primary-300">00</span>
+                                    <span class="text-[9px] uppercase tracking-wider text-slate-300">Secs</span>
+                                </div>
+                            </div>
+                            
+                            <div class="pt-2 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
+                                <span>Target: March 1, 2027</span>
+                                <span class="text-emerald-400"><i class="fa-solid fa-circle-check"></i> Optimized Study Track</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Features Board Grid -->
+            <div class="mb-16">
+                <div class="text-center mb-10 max-w-xl mx-auto">
+                    <h2 class="text-3xl font-extrabold tracking-tight">Comprehensive Student Hub</h2>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Discover quality curated structures designed for long-term strategic utility and swift Google AdSense indexing.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1: EduSphere Content hub -->
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-all duration-300 group">
+                        <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900/40 rounded-xl flex items-center justify-center text-primary-600 dark:text-primary-300 mb-6 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-book-open-reader text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">EduSphere Curriculums</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                            Access Class 9 to 12 syllabus, structured notes, and specialized vocational materials like IT/ITeS, Employability skills, CRM, and Retail.
+                        </p>
+                        <button onclick="navigateTo('edusphere')" class="text-sm font-semibold text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 flex items-center gap-1.5">
+                            Start Learning <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                    </div>
+
+                    <!-- Card 2: Powerful Student Tools -->
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-all duration-300 group">
+                        <div class="w-12 h-12 bg-secondary-100 dark:bg-secondary-900/40 rounded-xl flex items-center justify-center text-secondary-600 dark:text-secondary-300 mb-6 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-toolbox text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Student Utility Suite</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                            Run high-traffic applications locally in browser. Generate beautiful resumes, convert percentages, compute dynamic CGPA or ages, and generate custom QR codes.
+                        </p>
+                        <button onclick="navigateTo('tools')" class="text-sm font-semibold text-secondary-600 hover:text-secondary-700 dark:text-secondary-400 dark:hover:text-secondary-300 flex items-center gap-1.5">
+                            Launch Tools Dashboard <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                    </div>
+
+                    <!-- Card 3: Interactive Assessments -->
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-all duration-300 group">
+                        <div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/40 rounded-xl flex items-center justify-center text-emerald-600 dark:text-emerald-300 mb-6 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-clipboard-question text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Dynamic Mock Tests</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                            Track your academic standard with mock tests. Interactive feedback mechanisms designed to help you prepare effectively for final exams.
+                        </p>                      
+            
+            <!-- FAQs Block (Homepage schema helper) -->
+            <div class="mb-12">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Frequently Asked Questions</h2>
+                    <p class="text-xs text-slate-500 mt-1">SEO Optimized collapsible FAQ accordion schema blocks.</p>
+                </div>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <details class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4 cursor-pointer group">
+                        <summary class="font-semibold text-slate-900 dark:text-white flex justify-between items-center outline-none list-none">
+                            What is Sharif Studio educational platform?
+                            <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition"></i>
+                        </summary>
+                        <p class="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Sharif Studio is an educational web portal designed specially to offer comprehensive study solutions, vocational class notes (such as IT/ITeS under SEBA/AHSEC guidelines), and locally run browser-based student tools.
+                        </p>
+                    </details>
+
+                    <details class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4 cursor-pointer group">
+                        <summary class="font-semibold text-slate-900 dark:text-white flex justify-between items-center outline-none list-none">
+                            Are all the student utilities on this site safe to use?
+                            <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition"></i>
+                        </summary>
+                        <p class="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Absolutely. Every student tool provided here runs client-side inside your own local browser. We never upload, save, or parse your private inputs, files, resumes, or logs onto external servers.
+                        </p>
+                    </details>                    
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: EDUSPHERE (ACADEMIC notes portal) -->
+        <section id="sec-edusphere" class="page-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 hidden">
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Left Sidebar Filters -->
+                <aside class="w-full md:w-64 flex-shrink-0">
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 sticky top-20 space-y-6 shadow-sm">
+                        <div>
+                            <h3 class="text-xs uppercase tracking-wider font-extrabold text-slate-400 dark:text-slate-500 mb-3">Academic Classes</h3>
+                            <div class="space-y-1" id="class-filter-container">
+                                <!-- Generated Dynamically or Static standard buttons -->
+                                <button onclick="filterEduSphere('all')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl text-sm font-medium transition bg-primary-50 text-primary-600 dark:bg-primary-950/40 dark:text-primary-300">
+                                    <span>All Classes</span>
+                                    <span class="text-[10px] px-1.5 py-0.5 rounded bg-primary-100 dark:bg-primary-900/60 font-bold" id="badge-all-count">8</span>
+                                </button>
+                                <button onclick="filterEduSphere('class-9')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl text-sm text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700 transition">
+                                    <span>Class 9</span>
+                                </button>
+                                <button onclick="filterEduSphere('class-10')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl text-sm text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700 transition">
+                                    <span>Class 10</span>
+                                </button>
+                                <button onclick="filterEduSphere('class-11')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl text-sm text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700 transition">
+                                    <span>Class 11</span>
+                                </button>
+                                <button onclick="filterEduSphere('class-12')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl text-sm text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700 transition">
+                                    <span>Class 12</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xs uppercase tracking-wider font-extrabold text-slate-400 dark:text-slate-500 mb-3">Vocational Trades</h3>
+                            <div class="space-y-1">
+                                <button onclick="filterEduSphereTrade('IT')" class="w-full text-left px-3 py-2 rounded-xl text-sm text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700 transition flex items-center gap-2">
+                                    <i class="fa-solid fa-laptop-code text-xs text-primary-500"></i> IT/ITeS (Vocational)
+                                </button>
+                                <button onclick="filterEduSphereTrade('Domestic CRM')" class="w-full text-left px-3 py-2 rounded-xl text-sm text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700 transition flex items-center gap-2">
+                                    <i class="fa-solid fa-headset text-xs text-indigo-500"></i> Domestic CRM Voice
+                                </button>
+                                <button onclick="filterEduSphereTrade('Employability')" class="w-full text-left px-3 py-2 rounded-xl text-sm text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700 transition flex items-center gap-2">
+                                    <i class="fa-solid fa-users text-xs text-emerald-500"></i> Employability Skills
+                                </button>
+                                <button onclick="filterEduSphereTrade('Retail')" class="w-full text-left px-3 py-2 rounded-xl text-sm text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700 transition flex items-center gap-2">
+                                    <i class="fa-solid fa-shop text-xs text-rose-500"></i> Retail Notes
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Right Curated content view -->
+                <div class="flex-1 space-y-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h1 class="text-3xl font-extrabold tracking-tight">EduSphere Academic Library</h1>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Assam Board (AHSEC / SEBA) curriculum aligned premium textbooks explanations, notes, and downloadable PDF material index.</p>
+                        </div>
+                        <div class="relative">
+                            <!-- Simple category search inside EduSphere -->
+                            <input type="text" id="edusphere-search" onkeyup="searchEduSphere()" placeholder="Filter subjects..." class="px-4 py-2 text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 w-44 sm:w-60 focus:ring-2 focus:ring-primary-500 outline-none">
+                        </div>
+                    </div>
+
+                    <!-- Main Dynamic Material Feed -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="edusphere-feed">
+                        <!-- Chapter Cards injected via JS -->
+                    </div>
+
+                    <!-- Single Expanded Chapter detailed reader modal / inline view -->
+                    <div id="chapter-reader-container" class="hidden bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl">
+                        <!-- Back button -->
+                        <button onclick="closeChapterReader()" class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-sm font-semibold transition inline-flex items-center gap-2">
+                            <i class="fa-solid fa-arrow-left"></i> Back to EduSphere Catalog
+                        </button>
+                        
+                        <div id="expanded-chapter-content">
+                            <!-- Injected chapter content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: STUDENT UTILITY TOOLS -->
+        <section id="sec-tools" class="page-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 hidden">
+            <div class="text-center mb-10 max-w-xl mx-auto">
+                <h1 class="text-3xl font-extrabold tracking-tight">Student Tools</h1>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Useful tools for students to calculate, generate, and create instantly.</p>
+            </div>
+
+            <!-- Toolbar Grid index of active utilities -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 mb-10" id="tools-selector-grid">
+                <button onclick="switchActiveTool('age','percentage','cgpa','resume','qr')" class="tool-tab-btn flex flex-col items-center p-4 bg-white dark:bg-slate-800 rounded-2xl border-2 border-primary-500 text-primary-600 dark:text-primary-400 hover:shadow-lg transition">
+                    <i class="fa-solid fa-calendar-days text-2xl mb-2"></i>
+                    <span class="text-xs font-bold">Age Calc</span>
+                </button>
+                <button onclick="switchActiveTool('percent')" class="tool-tab-btn flex flex-col items-center p-4 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-primary-500 transition">
+                    <i class="fa-solid fa-percent text-2xl mb-2"></i>
+                    <span class="text-xs font-bold">Percentage</span>
+                </button>
+                <button onclick="switchActiveTool('cgpa')" class="tool-tab-btn flex flex-col items-center p-4 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-primary-500 transition">
+                    <i class="fa-solid fa-chart-line text-2xl mb-2"></i>
+                    <span class="text-xs font-bold">CGPA Calc</span>
+                </button>
+                <button onclick="switchActiveTool('qr')" class="tool-tab-btn flex flex-col items-center p-4 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-primary-500 transition">
+                    <i class="fa-solid fa-qrcode text-2xl mb-2"></i>
+                    <span class="text-xs font-bold">QR Gen</span>
+                </button>
+                <button onclick="switchActiveTool('resume')" class="tool-tab-btn flex flex-col items-center p-4 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-primary-500 transition">
+                    <i class="fa-solid fa-file-invoice text-2xl mb-2"></i>
+                    <span class="text-xs font-bold">Resume Build</span>
+                </button>                
+            </div>
+
+            <!-- Active Tool Canvas Panel -->
+            <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl p-6 sm:p-8 shadow-xl mb-12">
+                
+                <!-- TOOL 1: AGE CALCULATOR -->
+                <div id="tool-canvas-age" class="tool-content-block">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        <div class="lg:col-span-5 space-y-4">
+                            <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2"><i class="fa-solid fa-calendar-days text-primary-500"></i> Local Age Calculator</h2>
+                            <p class="text-xs text-slate-500 leading-relaxed">Instantly determine precise chronological milestones, complete with secondary charts tracking total calculated hours, elapsed months, and upcoming events.</p>
+                            
+                            <div class="space-y-4 pt-4">
+                                <div>
+                                    <label class="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-1.5">Date of Birth</label>
+                                    <input type="date" id="dob-input" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 focus:ring-2 focus:ring-primary-500 outline-none text-slate-900 dark:text-white">
+                                </div>
+                                <div>
+                                    <label class="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-1.5">Age at target Date (Default: Today)</label>
+                                    <input type="date" id="target-date-input" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 focus:ring-2 focus:ring-primary-500 outline-none text-slate-900 dark:text-white">
+                                </div>
+                                <button onclick="calculateAge()" class="w-full py-3 bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 text-white font-semibold rounded-xl transition">Compute Age Metrics</button>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-7 bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex flex-col justify-center">
+                            <div id="age-results-pane" class="text-center space-y-6">
+                                <i class="fa-solid fa-circle-question text-5xl text-slate-300 dark:text-slate-700"></i>
+                                <p class="text-sm text-slate-500">Please provide your birthday and select calculate to view full metrics.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEO Structured Article & Instructions (Required for AdSense approval) -->
+                    <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 space-y-4">
+                        <h4 class="font-bold text-lg">About Age Calculator & How It Works</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Our localized age calculator processes your date of birth metrics to determine accurate chronologic age. It measures exact year cycles, monthly residuals, and days past. It is crucial for board registrations and competitive exam applications in Assam.
+                        </p>
+                        <h5 class="font-semibold text-sm">How to use:</h5>
+                        <ol class="list-decimal pl-5 text-sm text-slate-600 dark:text-slate-400 space-y-1">
+                            <li>Enter your correct Date of Birth (DOB) inside the input date-picker block.</li>
+                            <li>Set the target reference calendar date.</li>
+                            <li>Click 'Compute Age Metrics' to read live parsed results instantly.</li>
+                        </ol>
+                        <div class="bg-primary-50 dark:bg-primary-950/20 p-3 rounded-xl text-xs text-primary-600 dark:text-primary-400">
+                            <strong>Privacy Guarantee:</strong> This tool utilizes native JavaScript calculation algorithms inside your client window. Zero private timeline dates are transmitted to remote servers.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOOL 2: PERCENTAGE CALCULATOR -->
+                <div id="tool-canvas-percent" class="tool-content-block hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        <div class="lg:col-span-5 space-y-4">
+                            <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2"><i class="fa-solid fa-percent text-secondary-500"></i> Percentage Calculator</h2>
+                            <p class="text-xs text-slate-500 leading-relaxed">Determine percentage values, ratios, and academic mark weightages instantly.</p>
+                            
+                            <div class="space-y-4 pt-4">
+                                <div>
+                                    <label class="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-1.5">Marks Obtained</label>
+                                    <input type="number" id="percent-obtained" placeholder="e.g., 420" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 focus:ring-2 focus:ring-primary-500 outline-none text-slate-900 dark:text-white">
+                                </div>
+                                <div>
+                                    <label class="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-1.5">Total Marks</label>
+                                    <input type="number" id="percent-total" placeholder="e.g., 500" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 focus:ring-2 focus:ring-primary-500 outline-none text-slate-900 dark:text-white">
+                                </div>
+                                <button onclick="calculatePercentage()" class="w-full py-3 bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 text-white font-semibold rounded-xl transition">Compute Percentage</button>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-7 bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex flex-col justify-center">
+                            <div id="percent-results-pane" class="text-center space-y-6">
+                                <i class="fa-solid fa-calculator text-5xl text-slate-300 dark:text-slate-700"></i>
+                                <p class="text-sm text-slate-500">Provide mark parameters to resolve percentage distributions.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEO Content -->
+                    <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 space-y-4">
+                        <h4 class="font-bold text-lg">Understanding Percentage Calculations</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Percentage formulations are highly essential for SEBA matriculation and AHSEC higher secondary students to quickly determine aggregate score ratings out of total subjects values.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- TOOL 3: CGPA CALCULATOR -->
+                <div id="tool-canvas-cgpa" class="tool-content-block hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        <div class="lg:col-span-6 space-y-4">
+                            <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2"><i class="fa-solid fa-chart-line text-emerald-500"></i> Dynamic CGPA to Percentage Calculator</h2>
+                            <p class="text-xs text-slate-500 leading-relaxed font-semibold">Standard Board-compatible score calculator. Add dynamic rows for your subject catalog below.</p>
+                            
+                            <!-- Dynamic Subjects Tables -->
+                            <div class="space-y-3 pt-2">
+                                <div id="cgpa-rows-container" class="space-y-2 max-h-60 overflow-y-auto pr-2">
+                                    <div class="flex gap-2 items-center cgpa-row">
+                                        <input type="text" placeholder="Subject (e.g., IT)" class="flex-1 px-3 py-2 text-sm rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white outline-none">
+                                        <input type="number" placeholder="Grade Point" step="0.1" max="10" class="w-24 px-3 py-2 text-sm rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white outline-none grade-point-input">
+                                        <button onclick="removeCgpaRow(this)" class="p-2 text-red-500 hover:bg-red-50 rounded-lg transition"><i class="fa-solid fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex gap-3">
+                                    <button onclick="addCgpaRow()" class="flex-1 py-2 border border-dashed border-slate-300 dark:border-slate-700 text-xs font-bold text-slate-600 dark:text-slate-400 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition"><i class="fa-solid fa-plus"></i> Add Subject Row</button>
+                                    <button onclick="calculateCgpa()" class="flex-1 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition">Compute Final CGPA</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-6 bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex flex-col justify-center">
+                            <div id="cgpa-results-pane" class="text-center space-y-4">
+                                <i class="fa-solid fa-chart-bar text-5xl text-slate-300 dark:text-slate-700"></i>
+                                <h3 class="text-lg font-bold">Calculation Metrics</h3>
+                                <p class="text-sm text-slate-500">Provide Grade points to generate aggregate CGPA and standard equivalents.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOOL 4: QR CODE GENERATOR -->
+                <div id="tool-canvas-qr" class="tool-content-block hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        <div class="lg:col-span-5 space-y-4">
+                            <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2"><i class="fa-solid fa-qrcode text-indigo-500"></i> Instant QR Code Generator</h2>
+                            <p class="text-xs text-slate-500 leading-relaxed">Instantly convert notes, site links, contact cards, or custom texts into a highly accurate standard QR vector image.</p>
+                            
+                            <div class="space-y-4 pt-4">
+                                <div>
+                                    <label class="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-1.5">Your URL or Text payload</label>
+                                    <textarea id="qr-input" rows="3" placeholder="Paste study link, syllabus URL or raw text..." class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 focus:ring-2 focus:ring-indigo-500 outline-none text-slate-900 dark:text-white text-sm"></textarea>
+                                </div>
+                                <button onclick="generateQrCode()" class="w-full py-3 bg-gradient-to-r from-indigo-600 to-primary-600 hover:from-indigo-700 hover:to-primary-700 text-white font-semibold rounded-xl transition">Generate Premium QR Matrix</button>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-7 bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex flex-col items-center justify-center">
+                            <div id="qr-results-pane" class="text-center space-y-4 flex flex-col items-center">
+                                <i class="fa-solid fa-image text-5xl text-slate-300 dark:text-slate-700"></i>
+                                <p class="text-sm text-slate-500">Your generated QR output block will render instantly.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOOL 5: RESUME BUILDER -->
+                <div id="tool-canvas-resume" class="tool-content-block hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        <!-- Left Data Input forms -->
+                        <div class="lg:col-span-5 space-y-4 max-h-[600px] overflow-y-auto pr-2">
+                            <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2"><i class="fa-solid fa-file-invoice text-rose-500"></i> Professional Student Resume Builder</h2>
+                            <p class="text-xs text-slate-500">Create beautiful, print-friendly resumes locally. Perfect for vocational students seeking internship placements.</p>
+                            
+                            <div class="space-y-4 pt-4 border-t border-slate-150">
+                                <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Personal Information</h3>
+                                <input type="text" id="resume-name" placeholder="Full Name" class="w-full px-3 py-2.5 text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white outline-none">
+                                <input type="email" id="resume-email" placeholder="Email Address" class="w-full px-3 py-2.5 text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white outline-none">
+                                <input type="tel" id="resume-phone" placeholder="Contact Number" class="w-full px-3 py-2.5 text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white outline-none">
+                                <input type="text" id="resume-location" placeholder="City, State (e.g. Guwahati, Assam)" class="w-full px-3 py-2.5 text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white outline-none">
+                                
+                                <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 pt-2">Professional Objective</h3>
+                                <textarea id="resume-objective" rows="2" placeholder="Motivated vocational student targeting active internships..." class="w-full px-3 py-2.5 text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white outline-none"></textarea>
+
+                                <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 pt-2">Academic Credentials</h3>
+                                <input type="text" id="resume-edu" placeholder="Class / College / Degree Details" class="w-full px-3 py-2.5 text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white outline-none">
+
+                                <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 pt-2">Technical Core Skills</h3>
+                                <input type="text" id="resume-skills" placeholder="e.g., Python, HTML, Customer Service (separated by comma)" class="w-full px-3 py-2.5 text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white outline-none">
+
+                                <button onclick="renderResumePreview()" class="w-full py-3 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl transition shadow-lg shadow-rose-500/15">Generate Real-Time Preview</button>
+                            </div>
+                        </div>
+
+                        <!-- Right Interactive Live preview & Printing control -->
+                        <div class="lg:col-span-7 bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 p-6 rounded-3xl flex flex-col">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-xs uppercase tracking-wider font-bold text-slate-400"><i class="fa-solid fa-eye"></i> Dynamic PDF Preview Canvas</span>
+                                <button onclick="printResume()" class="px-3.5 py-1.5 rounded-lg bg-slate-900 dark:bg-slate-700 text-white text-xs font-semibold hover:bg-slate-800 transition flex items-center gap-1.5"><i class="fa-solid fa-print"></i> Print / Save PDF</button>
+                            </div>
+
+                            <!-- Resume output container -->
+                            <div id="printable-resume-area" class="bg-white text-slate-900 p-8 shadow-md rounded-xl max-w-xl mx-auto w-full min-h-[500px] border border-slate-100 flex flex-col justify-between">
+                                <div id="resume-preview-rendered" class="space-y-6">
+                                    <div class="text-center py-16 text-slate-400 space-y-3">
+                                        <i class="fa-solid fa-file-pdf text-5xl"></i>
+                                        <p class="text-sm">Provide details on the left and hit compile to preview resume.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                        <div class="lg:col-span-6 bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex flex-col justify-center">
+                            <h3 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">Metric Parameters Results</h3>
+                            
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-250 dark:border-slate-700 text-center">
+                                    <span class="block text-2xl font-extrabold text-primary-600 dark:text-primary-400" id="stat-words">0</span>
+                                    <span class="text-xs font-bold text-slate-400">Words</span>
+                                </div>
+                                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-250 dark:border-slate-700 text-center">
+                                    <span class="block text-2xl font-extrabold text-primary-600 dark:text-primary-400" id="stat-chars">0</span>
+                                    <span class="text-xs font-bold text-slate-400">Characters</span>
+                                </div>
+                                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-250 dark:border-slate-700 text-center">
+                                    <span class="block text-2xl font-extrabold text-secondary-600 dark:text-secondary-400" id="stat-sentences">0</span>
+                                    <span class="text-xs font-bold text-slate-400">Sentences</span>
+                                </div>
+                                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-250 dark:border-slate-700 text-center">
+                                    <span class="block text-2xl font-extrabold text-secondary-600 dark:text-secondary-400" id="stat-read-time">0m</span>
+                                    <span class="text-xs font-bold text-slate-400">Read Time</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>   
+        
+        <!-- SECTION 6: BLOG -->
+        <section id="sec-blog" class="page-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 hidden">
+            <div class="text-center mb-10">
+                <h1 class="text-3xl font-extrabold tracking-tight">Sharif Studio Bulletin Blog</h1>
+                <p class="text-sm text-slate-500 mt-2">Latest notifications on Assam Boards SEBA, AHSEC exams, vocational guides, and strategic academic announcements.</p>
+            </div>
+
+            <!-- Blog Posts grid dynamic mockups -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Post 1 -->
+                <article class="bg-white dark:bg-slate-800 border rounded-2xl overflow-hidden hover:shadow-lg transition">
+                    <div class="h-48 bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-400">
+                        <i class="fa-solid fa-newspaper text-4xl"></i>
+                    </div>
+                    <div class="p-5 space-y-3">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-primary-500">SEBA Board Updates</span>
+                        <h3 class="text-lg font-bold hover:text-primary-600 cursor-pointer">SEBA Class 10 Vocational Syllabus Blueprint Announced</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">Detailed breakdown of IT/ITeS, CRM and Retail marking frameworks released for the upcoming educational year.</p>
+                        <div class="flex items-center justify-between text-[11px] text-slate-400 pt-3 border-t">
+                            <span>May 24, 2026</span>
+                            <span>Admin Post</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 2 -->
+                <article class="bg-white dark:bg-slate-800 border rounded-2xl overflow-hidden hover:shadow-lg transition">
+                    <div class="h-48 bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-400">
+                        <i class="fa-solid fa-graduation-cap text-4xl"></i>
+                    </div>
+                    <div class="p-5 space-y-3">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-secondary-500">Employability Skills</span>
+                        <h3 class="text-lg font-bold hover:text-secondary-600 cursor-pointer">Mastering Resume Writing: A Practical Guide for Students</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">How to draft your first professional intern CV to secure local IT/ITeS and Retail internship posts.</p>
+                        <div class="flex items-center justify-between text-[11px] text-slate-400 pt-3 border-t">
+                            <span>May 22, 2026</span>
+                            <span>S. Rahman</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 3 -->
+                <article class="bg-white dark:bg-slate-800 border rounded-2xl overflow-hidden hover:shadow-lg transition">
+                    <div class="h-48 bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-400">
+                        <i class="fa-solid fa-code text-4xl"></i>
+                    </div>
+                    <div class="p-5 space-y-3">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-500">Student Utilities</span>
+                        <h3 class="text-lg font-bold hover:text-emerald-600 cursor-pointer">Optimizing Your Study Schedules with client-side utility calculators</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">An introduction to how utility tools like CGPA, target age tracking, and resume builders help optimize workflow.</p>
+                        <div class="flex items-center justify-between text-[11px] text-slate-400 pt-3 border-t">
+                            <span>May 20, 2026</span>
+                            <span>Product Team</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- SECTION 7: ABOUT & CONTACT -->
+        <section id="sec-about" class="page-section max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <!-- Info Left -->
+                <div class="lg:col-span-6 space-y-6">
+                    <h1 class="text-3xl font-extrabold tracking-tight">About Sharif Studio</h1>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Sharif Studio is an educational movement built for long-term scalability. Under current development schemas, we focus deeply on SEBA/AHSEC frameworks, prioritizing the specialized IT/ITeS vocational curriculums, and providing free high-grade client-run utility calculators.
+                    </p>
+                    <div class="bg-slate-100 dark:bg-slate-800 p-5 rounded-2xl space-y-2 border">
+                        <h4 class="font-bold text-sm">Our Mission Statement</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed">To offer high-quality original study references to secondary learners, keeping digital ecosystems perfectly responsive, modern, and clean for user sessions.</p>
+                    </div>
+                </div>
+
+                <!-- Contact Right Form -->
+                <div class="lg:col-span-6 bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <h3 class="text-xl font-bold mb-4">Connect with Sharif Studio</h3>
+                    <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-1">Your Name</label>
+                            <input type="text" id="contact-name" required class="w-full px-4 py-2 text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-1">Email Address</label>
+                            <input type="email" id="contact-email" required class="w-full px-4 py-2 text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-1">Your Message</label>
+                            <textarea id="contact-message" required rows="4" class="w-full px-4 py-2 text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white outline-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-2.5 bg-primary-600 hover:bg-primary-700 text-white text-xs font-bold rounded-xl transition">Submit Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- LEGAL PAGES (SPA VIEWS) -->
+        <section id="sec-privacy" class="page-section max-w-4xl mx-auto px-4 py-12 hidden">
+            <h1 class="text-3xl font-extrabold mb-4">Privacy Policy</h1>
+            <div class="prose dark:prose-invert text-slate-600 dark:text-slate-400 space-y-4 text-sm leading-relaxed">
+                <p>Last updated: May 24, 2026</p>
+                <p>Welcome to Sharif Studio. We operate with supreme respect for your data privacy. Any student utility or tool hosted here processes operations locally on your personal device browser. We do not transmit, analyze, host or process details on external cloud frameworks.</p>
+                <p>We may integrate standard Google AdSense modules. These third-party vendors use cookies to serve ads based on your visits to our site. You can opt out of personalized advertising by visiting your Google Ad Settings.</p>
+            </div>
+        </section>
+
+        <section id="sec-terms" class="page-section max-w-4xl mx-auto px-4 py-12 hidden">
+            <h1 class="text-3xl font-extrabold mb-4">Terms and Conditions</h1>
+            <div class="prose dark:prose-invert text-slate-600 dark:text-slate-400 space-y-4 text-sm leading-relaxed">
+                <p>By accessing Sharif Studio, you agree to fulfill basic academic usage patterns. Our materials are intended solely for academic growth and classroom instruction preparation. No parts of our dynamic utilities can be mirrored, redistributed, or repackaged as premium apps without our explicit consent.</p>
+            </div>
+        </section>
+
+        <section id="sec-disclaimer" class="page-section max-w-4xl mx-auto px-4 py-12 hidden">
+            <h1 class="text-3xl font-extrabold mb-4">Legal Disclaimer</h1>
+            <div class="prose dark:prose-invert text-slate-600 dark:text-slate-400 space-y-4 text-sm leading-relaxed">
+                <p>Sharif Studio holds no official structural affiliation with the Board of Secondary Education Assam (SEBA) or the Assam Higher Secondary Education Council (AHSEC). Our study notes, guides, solutions, vocational papers, and diagnostic calculations are constructed strictly as helpful resources. We maintain no guarantee of absolute alignment with final official results boards parameters.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Interactive Custom Alert Toast Modal -->
+    <div id="custom-alert-toast" class="fixed bottom-5 right-5 z-50 transform translate-y-10 opacity-0 transition-all duration-300 max-w-sm w-full bg-slate-900 text-white rounded-xl shadow-2xl p-4 flex items-center gap-3 border border-slate-700">
+        <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm" id="alert-toast-icon">
+            <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <p class="text-xs font-semibold flex-1" id="alert-toast-message">Success message</p>
+        <button onclick="dismissToastAlert()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
     </div>
 
-</div>
+    <!-- Sticky Footer -->
+    <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Col 1: About -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-gradient-to-tr from-primary-600 to-secondary-600 rounded-lg flex items-center justify-center text-white font-bold"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <span class="font-bold text-lg text-slate-900 dark:text-white">Sharif Studio</span>
+                    </div>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                        A modern multi-category responsive platform delivering state board curriculums, specialized vocational solutions, and localized browser utility suites.
+                    </p>
+                </div>
 
-<!-- 🔗 FOOTER -->
-<div class="container" style="margin-top:20px; font-size:14px;">
-    <a href="about.html">About</a> |
-    <a href="privacy.html">Privacy Policy</a> |
-    <a href="contact.html">Contact</a>
-</div>
+                <!-- Col 2: Hub Categories -->
+                <div>
+                    <h4 class="text-xs font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4">EduSphere Hub</h4>
+                    <ul class="space-y-2 text-xs font-semibold text-slate-600 dark:text-slate-400">
+                        <li><button onclick="navigateTo('edusphere'); filterEduSphere('class-9')" class="hover:underline">Class 9 Syllabus</button></li>
+                        <li><button onclick="navigateTo('edusphere'); filterEduSphere('class-10')" class="hover:underline">Class 10 Syllabus</button></li>
+                        <li><button onclick="navigateTo('edusphere'); filterEduSphere('class-11')" class="hover:underline">Class 11 Vocational</button></li>
+                        <li><button onclick="navigateTo('edusphere'); filterEduSphere('class-12')" class="hover:underline">Class 12 Vocational</button></li>
+                    </ul>
+                </div>
 
-<!-- 🔥 JS -->
-<script defer src="js/app.js"></script>
+                <!-- Col 3: Quick Utilities -->
+                <div>
+                    <h4 class="text-xs font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4">Student Tools</h4>
+                    <ul class="space-y-2 text-xs font-semibold text-slate-600 dark:text-slate-400">
+                        <li><button onclick="navigateTo('tools'); switchActiveTool('age')" class="hover:underline">Age Tracker</button></li>
+                        <li><button onclick="navigateTo('tools'); switchActiveTool('cgpa')" class="hover:underline">CGPA Converter</button></li>
+                        <li><button onclick="navigateTo('tools'); switchActiveTool('resume')" class="hover:underline">Professional CV Builder</button></li>
+                        <li><button onclick="navigateTo('tools'); switchActiveTool('qr')" class="hover:underline">QR Code Creator</button></li>
+                    </ul>
+                </div>
 
+                <!-- Col 4: legal compliance -->
+                <div>
+                    <h4 class="text-xs font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4">Legal Directory</h4>
+                    <ul class="space-y-2 text-xs font-semibold text-slate-600 dark:text-slate-400">
+                        <li><button onclick="navigateTo('privacy')" class="hover:underline">Privacy Policy</button></li>
+                        <li><button onclick="navigateTo('terms')" class="hover:underline">Terms of Service</button></li>
+                        <li><button onclick="navigateTo('disclaimer')" class="hover:underline">Disclaimer Notes</button></li>
+                        <li><button onclick="navigateTo('about')" class="hover:underline">Contact Center</button></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Credits section -->
+            <div class="border-t border-slate-200 dark:border-slate-800 mt-12 pt-6 text-center text-[11px] text-slate-400">
+                <p>&copy; 2026 Sharif Studio. Designed for professional education, local student utility support, and scalable Google AdSense integrations.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC BLOCK -->
+    <script>
+        // Global variables state
+        let currentSection = 'home';
+        let isDarkTheme = true;
+        let isMobileMenuOpen = false;
+        let isSearchOpen = false;
+
+        // Custom Educational Notes & Quiz Database
+        const edusphereDatabase = [
+            {
+                id: 'ch-1-it-10',
+                title: 'Networking Concepts',
+                class: 'class-10',
+                subject: 'IT/ITeS',
+                trade: 'IT',
+                excerpt: 'Introduction to networking models, network topologies (Star, Ring, Bus), and basic configuration rules.',
+                explanation: `
+                    <h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Chapter Explanation: Computer Networking Models</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                        A computer network is a system of interconnected computers and peripheral devices. The primary goal of a network is to exchange data and share hardware/software resources.
+                    </p>
+                    <h4 class="text-base font-bold mb-2 text-slate-900 dark:text-white">Network Topologies:</h4>
+                    <ul class="list-disc pl-5 text-sm text-slate-600 dark:text-slate-400 space-y-2 mb-6">
+                        <li><strong>Bus Topology:</strong> Uses a single central cable (backbone) to connect all nodes. Standard terminator endpoints prevent echo signals.</li>
+                        <li><strong>Star Topology:</strong> Every node connects directly to a central hub/switch. Highly secure and easy to troubleshoot.</li>
+                        <li><strong>Ring Topology:</strong> Computers connect sequentially in a circular loop. Token packets coordinate signal flow.</li>
+                    </ul>
+                    <h4 class="text-base font-bold mb-2 text-slate-900 dark:text-white">Subject Q&A Checklist:</h4>
+                    <div class="space-y-4">
+                        <div class="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border">
+                            <h5 class="font-bold text-xs uppercase text-primary-500 mb-1">Question 1: What is the main utility of a Star Topology Hub?</h5>
+                            <p class="text-xs text-slate-600 dark:text-slate-400">It acts as a central distribution routing switch. If a peripheral wire fails, only that device disconnects, preventing full network failures.</p>
+                        </div>
+                    </div>
+                `,
+                pdfUrl: '#'
+            },
+            {
+                id: 'ch-2-crm-11',
+                title: 'Client Relationships Voice CRM',
+                class: 'class-11',
+                subject: 'Domestic CRM Voice',
+                trade: 'Domestic CRM',
+                excerpt: 'Managing customer queries, query resolution flows, active listening strategies, and call guidelines.',
+                explanation: `
+                    <h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Chapter Explanation: Client Relationships Voice CRM</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                        A Domestic Customer Relationship Management (CRM) representative serves as the primary direct channel for customer feedback and query resolutions. Active listening and precise call routing structures are crucial.
+                    </p>
+                    <h4 class="text-base font-bold mb-2 text-slate-900 dark:text-white">Core Pillars of Customer Interaction:</h4>
+                    <ul class="list-disc pl-5 text-sm text-slate-600 dark:text-slate-400 space-y-2 mb-6">
+                        <li><strong>Empathy:</strong> Acknowledging user frustration and addressing complaints respectfully.</li>
+                        <li><strong>Standard Active Listening:</strong> Never interrupting a caller during the problem formulation phase.</li>
+                        <li><strong>Query Documentation:</strong> Recording call parameters accurately inside database logs.</li>
+                    </ul>
+                `,
+                pdfUrl: '#'
+            },
+            {
+                id: 'ch-3-emp-10',
+                title: 'Effective Communications Skills',
+                class: 'class-10',
+                subject: 'Employability Skills',
+                trade: 'Employability',
+                excerpt: 'Mastering verbal, non-verbal, and written professional communications. Dealing with barriers to effective interaction.',
+                explanation: `
+                    <h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Chapter Explanation: Effective Communication</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                        Communication is the transmission of information from a sender to a receiver. For employability, clarity, tone modulation, and structural grammar are vital.
+                    </p>
+                    <h4 class="text-base font-bold mb-2 text-slate-900 dark:text-white">Standard Communication Barriers:</h4>
+                    <ul class="list-disc pl-5 text-sm text-slate-600 dark:text-slate-400 space-y-2 mb-6">
+                        <li><strong>Physical Barriers:</strong> Static noise, poor microphone setups, or geographic distance.</li>
+                        <li><strong>Language Barriers:</strong> Regional dialicts mismatching target organizational communication tongues.</li>
+                    </ul>
+                `,
+                pdfUrl: '#'
+            },
+            {
+                id: 'ch-4-ret-12',
+                title: 'Retail Store Operations Management',
+                class: 'class-12',
+                subject: 'Retail Notes',
+                trade: 'Retail',
+                excerpt: 'Mastering checkout procedures, billing cycles, stock audits, and visual merchandising models.',
+                explanation: `
+                    <h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Chapter Explanation: Retail Store Operations</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                        Retail store operators handle logistics, shelf optimization, visual display management, and secure cashier billing systems.
+                    </p>
+                    <h4 class="text-base font-bold mb-2 text-slate-900 dark:text-white">Billing Lifecycle Procedures:</h4>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                        Includes scanning product barcodes, applying active store discounts, accepting cash/digital transactions, and printing digital checkout slips.
+                    </p>
+                `,
+                pdfUrl: '#'
+            }
+        ];
+
+        // Quiz Question Database for Mock Exam
+        const quizQuestions = [
+            {
+                q: "Which network topology connects all nodes directly to a central hub/switch?",
+                options: ["Bus Topology", "Star Topology", "Ring Topology", "Mesh Topology"],
+                ans: 1
+            },
+            {
+                q: "What does the abbreviation 'CRM' represent in corporate communication?",
+                options: ["Customer Relationship Management", "Client Resource Mechanism", "Centralised Route Module", "Consumer Retail Management"],
+                ans: 0
+            },
+            {
+                q: "Which communication model involves physical gestures, facial expressions, and eye contact?",
+                options: ["Verbal Communication", "Written Communication", "Non-Verbal Communication", "Transactional Model"],
+                ans: 2
+            },
+            {
+                q: "What is the primary function of a terminator in Bus Topology networks?",
+                options: ["To start packet routing", "To absorb bounce signals", "To connect secondary switches", "To secure physical servers"],
+                ans: 1
+            },
+            {
+                q: "Which vocational trade focus deals specifically with checkout counters and visual inventory shelf-management?",
+                options: ["IT/ITeS", "Domestic Voice CRM", "Retail Management", "Employability Skills"],
+                ans: 2
+            }
+        ];
+
+        let activeQuizIndex = 0;
+        let quizScore = 0;
+        let quizTimerInterval;
+
+        // Navigation and Routing Event Handlers
+        function navigateTo(sectionId) {
+            // Hide all active sections
+            document.querySelectorAll('.page-section').forEach(sec => {
+                sec.classList.add('hidden');
+            });
+
+            // Remove active style from header navigation tabs
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-primary-600', 'dark:text-primary-400');
+            });
+
+            // Show target section
+            const targetSec = document.getElementById(`sec-${sectionId}`);
+            if (targetSec) {
+                targetSec.classList.remove('hidden');
+                currentSection = sectionId;
+            }
+
+            // Scroll smoothly to top of viewport
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Search Trigger Controller
+        
+        // Global Search execution logic
+        function handleGlobalSearch(event) {
+            const term = event.target.value.toLowerCase().trim();
+            const resultsContainer = document.getElementById('search-results');
+            
+            if (!term) {
+                resultsContainer.innerHTML = `<p class="text-slate-400 text-sm text-center py-6">Type something to search across Sharif Studio's materials and tools.</p>`;
+                return;
+            }
+
+            let resultsHTML = '';
+
+            // Match tools
+            const toolsList = [
+                { name: 'Age Calculator', code: 'age' },
+                { name: 'Percentage Calculator', code: 'percent' },
+                { name: 'CGPA Calculator', code: 'cgpa' },
+                { name: 'QR Code Generator', code: 'qr' },
+                { name: 'Resume Builder', code: 'resume' },
+                { name: 'Word Counter', code: 'words' }
+            ];
+
+            const matchedTools = toolsList.filter(t => t.name.toLowerCase().includes(term));
+            matchedTools.forEach(tool => {
+                resultsHTML += `
+                    <div onclick="navigateTo('tools'); switchActiveTool('${tool.code}'); toggleSearch()" class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border cursor-pointer hover:bg-slate-100 transition flex justify-between items-center">
+                        <span class="font-bold text-sm text-slate-900 dark:text-white"><i class="fa-solid fa-toolbox text-primary-500 mr-2"></i> ${tool.name}</span>
+                        <span class="text-[10px] bg-primary-100 text-primary-600 px-2 py-0.5 rounded-full font-bold">Launch Tool</span>
+                    </div>
+                `;
+            });
+
+            // Match chapters database
+            const matchedChapters = edusphereDatabase.filter(ch => 
+                ch.title.toLowerCase().includes(term) || 
+                ch.subject.toLowerCase().includes(term) || 
+                ch.trade.toLowerCase().includes(term)
+            );
+
+            matchedChapters.forEach(ch => {
+                resultsHTML += `
+                    <div onclick="navigateTo('edusphere'); openChapterReader('${ch.id}'); toggleSearch()" class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border cursor-pointer hover:bg-slate-100 transition flex flex-col gap-1">
+                        <div class="flex justify-between">
+                            <span class="font-bold text-sm text-slate-900 dark:text-white"><i class="fa-solid fa-book text-secondary-500 mr-2"></i> ${ch.title}</span>
+                            <span class="text-[10px] bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded-full font-bold">${ch.subject}</span>
+                        </div>
+                        <p class="text-xs text-slate-400 truncate">${ch.excerpt}</p>
+                    </div>
+                `;
+            });
+
+            if (!resultsHTML) {
+                resultsContainer.innerHTML = `<p class="text-slate-400 text-sm text-center py-6">No matching materials or tools found. Try searching 'IT/ITeS' or 'CGPA'.</p>`;
+            } else {
+                resultsContainer.innerHTML = resultsHTML;
+            }
+        }
+
+        // Mobile Menu Slider Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            isMobileMenuOpen = !isMobileMenuOpen;
+            
+            if (isMobileMenuOpen) {
+                menu.classList.remove('hidden');
+                icon.className = "fa-solid fa-xmark text-slate-600 dark:text-slate-300";
+            } else {
+                menu.classList.add('hidden');
+                icon.className = "fa-solid fa-bars text-slate-600 dark:text-slate-300";
+            }
+        }
+
+        // Custom Floating Notification System
+        function triggerCustomNotification(msg, type = "success") {
+            const toast = document.getElementById('custom-alert-toast');
+            const messagePane = document.getElementById('alert-toast-message');
+            const iconPane = document.getElementById('alert-toast-icon');
+
+            messagePane.innerText = msg;
+            if (type === "success") {
+                iconPane.className = "w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm";
+                iconPane.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
+            } else {
+                iconPane.className = "w-8 h-8 rounded-full bg-red-500/20 text-red-400 flex items-center justify-center text-sm";
+                iconPane.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
+            }
+
+            toast.classList.remove('translate-y-10', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                dismissToastAlert();
+            }, 4000);
+        }
+
+        function dismissToastAlert() {
+            const toast = document.getElementById('custom-alert-toast');
+            toast.classList.remove('translate-y-0', 'opacity-100');
+            toast.classList.add('translate-y-10', 'opacity-0');
+        }
+
+        // Switch Active student utility tool tabs
+        function switchActiveTool(toolCode) {
+            document.querySelectorAll('.tool-content-block').forEach(block => {
+                block.classList.add('hidden');
+            });
+            document.getElementById(`tool-canvas-${toolCode}`).classList.remove('hidden');
+
+            document.querySelectorAll('.tool-tab-btn').forEach(btn => {
+                btn.className = "tool-tab-btn flex flex-col items-center p-4 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-primary-500 transition";
+            });
+
+            // Highlight target tab button
+            event.currentTarget.className = "tool-tab-btn flex flex-col items-center p-4 bg-white dark:bg-slate-800 rounded-2xl border-2 border-primary-500 text-primary-600 dark:text-primary-400 hover:shadow-lg transition";
+        }
+
+        // CALCULATOR 1: AGE METRIC ENGINE
+        function calculateAge() {
+            const dobString = document.getElementById('dob-input').value;
+            const targetString = document.getElementById('target-date-input').value;
+            const resultsPane = document.getElementById('age-results-pane');
+
+            if (!dobString) {
+                triggerCustomNotification('Please enter your birthday first!', 'error');
+                return;
+            }
+
+            const birthDate = new Date(dobString);
+            const targetDate = targetString ? new Date(targetString) : new Date();
+
+            if (birthDate > targetDate) {
+                triggerCustomNotification('Birthday cannot reside in future timeline!', 'error');
+                return;
+            }
+
+            let ageYears = targetDate.getFullYear() - birthDate.getFullYear();
+            let ageMonths = targetDate.getMonth() - birthDate.getMonth();
+            let ageDays = targetDate.getDate() - birthDate.getDate();
+
+            if (ageDays < 0) {
+                ageMonths--;
+                ageDays += new Date(targetDate.getFullYear(), targetDate.getMonth(), 0).getDate();
+            }
+            if (ageMonths < 0) {
+                ageYears--;
+                ageMonths += 12;
+            }
+
+            // Calculations for Secondary Metrics (Saves server processing & matches high-value criteria)
+            const totalMsElapsed = targetDate - birthDate;
+            const totalDaysElapsed = Math.floor(totalMsElapsed / (1000 * 60 * 60 * 24));
+            const totalHoursElapsed = totalDaysElapsed * 24;
+
+            resultsPane.innerHTML = `
+                <div class="space-y-6 text-left">
+                    <div class="text-center py-4 bg-primary-100 dark:bg-primary-950/40 rounded-2xl">
+                        <span class="text-xs font-bold text-primary-600 uppercase tracking-widest">Calculated Age Outcome</span>
+                        <h3 class="text-4xl font-black mt-1 text-slate-900 dark:text-white">${ageYears} Years, ${ageMonths} Months</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Residual Days count: <strong>${ageDays} Days</strong></p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-3 bg-white dark:bg-slate-800 border rounded-xl text-center shadow-sm">
+                            <span class="block text-sm font-bold text-slate-400">Total Days Elapsed</span>
+                            <span class="text-lg font-extrabold text-slate-800 dark:text-white">${totalDaysElapsed.toLocaleString()}</span>
+                        </div>
+                        <div class="p-3 bg-white dark:bg-slate-800 border rounded-xl text-center shadow-sm">
+                            <span class="block text-sm font-bold text-slate-400">Total Hours</span>
+                            <span class="text-lg font-extrabold text-slate-800 dark:text-white">${totalHoursElapsed.toLocaleString()}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            triggerCustomNotification('Chronological age processed successfully!');
+        }
+
+        // CALCULATOR 2: PERCENTAGE CALCULATOR
+        function calculatePercentage() {
+            const marksObtained = parseFloat(document.getElementById('percent-obtained').value);
+            const marksTotal = parseFloat(document.getElementById('percent-total').value);
+            const pane = document.getElementById('percent-results-pane');
+
+            if (isNaN(marksObtained) || isNaN(marksTotal) || marksTotal <= 0) {
+                triggerCustomNotification('Enter valid positive values!', 'error');
+                return;
+            }
+
+            if (marksObtained > marksTotal) {
+                triggerCustomNotification('Obtained marks cannot exceed maximum limits!', 'error');
+                return;
+            }
+
+            const percentage = ((marksObtained / marksTotal) * 100).toFixed(2);
+
+            pane.innerHTML = `
+                <div class="text-center space-y-4 py-8">
+                    <span class="text-xs uppercase font-extrabold text-secondary-500 tracking-wider">Computed Percentage Outcome</span>
+                    <h2 class="text-5xl font-black text-slate-950 dark:text-white">${percentage}%</h2>
+                    <p class="text-xs text-slate-500 leading-relaxed max-w-sm mx-auto">Calculated ratio: <strong>${marksObtained}</strong> parts out of a total weight of <strong>${marksTotal}</strong>.</p>
+                </div>
+            `;
+            triggerCustomNotification('Percentage calculated.');
+        }
+
+        // CALCULATOR 3: DYNAMIC SUBJECT CGPA GENERATOR
+        function addCgpaRow() {
+            const container = document.getElementById('cgpa-rows-container');
+            const div = document.createElement('div');
+            div.className = "flex gap-2 items-center cgpa-row";
+            div.innerHTML = `
+                <input type="text" placeholder="Subject (e.g., IT)" class="flex-1 px-3 py-2 text-sm rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white outline-none">
+                <input type="number" placeholder="Grade Point" step="0.1" max="10" class="w-24 px-3 py-2 text-sm rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white outline-none grade-point-input">
+                <button onclick="removeCgpaRow(this)" class="p-2 text-red-500 hover:bg-red-50 rounded-lg transition"><i class="fa-solid fa-trash"></i></button>
+            `;
+            container.appendChild(div);
+        }
+
+        function removeCgpaRow(btn) {
+            btn.parentElement.remove();
+        }
+
+        function calculateCgpa() {
+            const inputs = document.querySelectorAll('.grade-point-input');
+            const pane = document.getElementById('cgpa-results-pane');
+            let sumPoints = 0;
+            let count = 0;
+
+            inputs.forEach(input => {
+                const val = parseFloat(input.value);
+                if (!isNaN(val) && val >= 0 && val <= 10) {
+                    sumPoints += val;
+                    count++;
+                }
+            });
+
+            if (count === 0) {
+                triggerCustomNotification('Please input at least one valid grade parameter!', 'error');
+                return;
+            }
+
+            const cgpa = (sumPoints / count).toFixed(2);
+            // standard CBSE/Board converter factor: CGPA * 9.5 = Percentage
+            const convertedPercentage = (cgpa * 9.5).toFixed(1);
+
+            pane.innerHTML = `
+                <div class="text-center space-y-4 py-4">
+                    <span class="text-xs uppercase font-extrabold text-emerald-500 tracking-wider">Dynamic Study Track Metrics</span>
+                    <h2 class="text-5xl font-black text-slate-950 dark:text-white">${cgpa} <span class="text-xs text-slate-400">CGPA</span></h2>
+                    
+                    <div class="p-3 bg-emerald-50 dark:bg-emerald-950/20 border rounded-xl max-w-xs mx-auto">
+                        <span class="block text-xs font-bold text-slate-400">Equivalent Percentage</span>
+                        <span class="text-lg font-extrabold text-emerald-600 dark:text-emerald-400">${convertedPercentage}%</span>
+                    </div>
+                    <p class="text-[10px] text-slate-400">Standard Conversion Metric: CGPA multiplied by 9.5 factors.</p>
+                </div>
+            `;
+            triggerCustomNotification('CGPA calculated.');
+        }
+
+        // TOOL 4: DYNAMIC QR CODE MATRIX (Uses free visual rendering APIs)
+        function generateQrCode() {
+            const payload = document.getElementById('qr-input').value.trim();
+            const pane = document.getElementById('qr-results-pane');
+
+            if (!payload) {
+                triggerCustomNotification('Provide text URL payload first!', 'error');
+                return;
+            }
+
+            const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(payload)}`;
+
+            pane.innerHTML = `
+                <div class="space-y-4 flex flex-col items-center">
+                    <div class="bg-white p-3 rounded-2xl border shadow-sm">
+                        <img src="${qrUrl}" alt="Generated QR code" class="w-44 h-44 rounded-lg">
+                    </div>
+                    <div class="flex gap-2 w-full">
+                        <button onclick="copyQrPayload('${payload}')" class="flex-1 py-2 text-xs font-bold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-lg transition">Copy Payload</button>
+                        <a href="${qrUrl}" target="_blank" download="SharifStudio_QR.png" class="flex-1 py-2 text-xs text-center font-bold bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition block">View High-res</a>
+                    </div>
+                </div>
+            `;
+            triggerCustomNotification('QR generated successfully!');
+        }
+
+        function copyQrPayload(txt) {
+            const temp = document.createElement('textarea');
+            temp.value = txt;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand('copy');
+            document.body.removeChild(temp);
+            triggerCustomNotification('Payload copied to clipboard!');
+        }
+
+        // TOOL 5: DYNAMIC STUDENT CV BUILDER
+        function renderResumePreview() {
+            const name = document.getElementById('resume-name').value || "Your Name";
+            const email = document.getElementById('resume-email').value || "student@sharifstudio.com";
+            const phone = document.getElementById('resume-phone').value || "+91-98765-XXXXX";
+            const loc = document.getElementById('resume-location').value || "Guwahati, Assam";
+            const objective = document.getElementById('resume-objective').value || "Brief carrier objective details go here.";
+            const edu = document.getElementById('resume-edu').value || "Primary Class/School details.";
+            const skills = document.getElementById('resume-skills').value || "HTML, SQL, Communications";
+
+            const previewArea = document.getElementById('resume-preview-rendered');
+
+            let skillsHTML = '';
+            skills.split(',').forEach(s => {
+                if (s.trim()) {
+                    skillsHTML += `<span class="px-2 py-0.5 bg-slate-150 text-slate-800 rounded text-xs font-medium">${s.trim()}</span>`;
+                }
+            });
+
+            previewArea.innerHTML = `
+                <div class="space-y-6 text-left">
+                    <div class="border-b pb-4">
+                        <h2 class="text-2xl font-bold tracking-tight text-slate-900">${name}</h2>
+                        <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-500 mt-1 font-semibold">
+                            <span><i class="fa-solid fa-envelope"></i> ${email}</span>
+                            <span><i class="fa-solid fa-phone"></i> ${phone}</span>
+                            <span><i class="fa-solid fa-location-dot"></i> ${loc}</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <h3 class="text-xs uppercase tracking-wider font-extrabold text-slate-400">Career Objective</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">${objective}</p>
+                    </div>
+
+                    <div class="space-y-2">
+                        <h3 class="text-xs uppercase tracking-wider font-extrabold text-slate-400">Education Background</h3>
+                        <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <p class="text-xs font-bold text-slate-900">${edu}</p>
+                            <p class="text-[10px] text-slate-400 mt-0.5">Assam Academic Syllabus Track</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <h3 class="text-xs uppercase tracking-wider font-extrabold text-slate-400">Key Competencies & Trade Skills</h3>
+                        <div class="flex flex-wrap gap-2">
+                            ${skillsHTML || '<span class="text-xs text-slate-400">No skills declared yet</span>'}
+                        </div>
+                    </div>
+                </div>
+            `;
+            triggerCustomNotification('CV Compiled successfully!');
+        }
+
+        function printResume() {
+            window.print();
+        }
+
+        
+        // SECTION 2: EDUSPHERE MAIN FEED DATA ENGINE
+        function renderEduSphereFeed(items) {
+            const feed = document.getElementById('edusphere-feed');
+            feed.innerHTML = '';
+
+            if (items.length === 0) {
+                feed.innerHTML = `
+                    <div class="col-span-2 text-center py-12 text-slate-400">
+                        <i class="fa-solid fa-folder-open text-4xl mb-2"></i>
+                        <p class="text-sm">No chapters found match criteria.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            items.forEach(ch => {
+                feed.innerHTML += `
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-250 dark:border-slate-700 hover:shadow-lg transition flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-900 text-slate-500 font-bold text-[9px] uppercase tracking-wider">${ch.class.replace('-', ' ')}</span>
+                                <span class="text-[10px] font-bold text-primary-500 uppercase tracking-widest">${ch.trade}</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">${ch.title}</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">${ch.excerpt}</p>
+                        </div>
+                        <div class="pt-4 mt-4 border-t flex justify-between items-center">
+                            <span class="text-[10px] text-slate-400 font-semibold">${ch.subject}</span>
+                            <button onclick="openChapterReader('${ch.id}')" class="px-3.5 py-1.5 bg-primary-600 hover:bg-primary-700 text-white rounded-lg text-xs font-bold transition">Read Explanations</button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function filterEduSphere(classId) {
+            if (classId === 'all') {
+                renderEduSphereFeed(edusphereDatabase);
+            } else {
+                const filtered = edusphereDatabase.filter(ch => ch.class === classId);
+                renderEduSphereFeed(filtered);
+            }
+
+            // Update filters list UI styling
+            event.currentTarget.parentElement.querySelectorAll('button').forEach(btn => {
+                btn.className = "w-full flex items-center justify-between px-3 py-2 rounded-xl text-sm text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700 transition";
+            });
+            event.currentTarget.className = "w-full flex items-center justify-between px-3 py-2 rounded-xl text-sm font-medium transition bg-primary-50 text-primary-600 dark:bg-primary-950/40 dark:text-primary-300";
+        }
+
+        function filterEduSphereTrade(tradeId) {
+            const filtered = edusphereDatabase.filter(ch => ch.trade === tradeId);
+            renderEduSphereFeed(filtered);
+        }
+
+        function searchEduSphere() {
+            const searchVal = document.getElementById('edusphere-search').value.toLowerCase();
+            const filtered = edusphereDatabase.filter(ch => ch.title.toLowerCase().includes(searchVal) || ch.subject.toLowerCase().includes(searchVal));
+            renderEduSphereFeed(filtered);
+        }
+
+        function openChapterReader(id) {
+            const ch = edusphereDatabase.find(item => item.id === id);
+            if (!ch) return;
+
+            document.getElementById('edusphere-feed').classList.add('hidden');
+            const reader = document.getElementById('chapter-reader-container');
+            const inner = document.getElementById('expanded-chapter-content');
+
+            inner.innerHTML = `
+                <div class="space-y-4">
+                    <div class="flex items-center gap-2">
+                        <span class="px-2 py-0.5 rounded bg-primary-100 text-primary-600 font-bold text-[9px] uppercase">${ch.class.replace('-', ' ')}</span>
+                        <span class="text-xs text-slate-400 font-semibold">${ch.subject}</span>
+                    </div>
+                    <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white">${ch.title}</h1>
+                    <hr class="dark:border-slate-700">
+                    <div class="prose dark:prose-invert">
+                        ${ch.explanation}
+                    </div>
+                </div>
+            `;
+            reader.classList.remove('hidden');
+        }
+
+        function closeChapterReader() {
+            document.getElementById('chapter-reader-container').classList.add('hidden');
+            document.getElementById('edusphere-feed').classList.remove('hidden');
+        }
+
+        // Contact form processing handler
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('contact-name').value;
+            triggerCustomNotification(`Thank you, ${name}! Your educational query has been submitted locally.`);
+            event.target.reset();
+        }
+
+        // AHSEC / SEBA Exam Target Countdown clock
+        function initializeCountdownClock() {
+            const examTargetDate = new Date("March 1, 2027 09:00:00").getTime();
+
+            setInterval(() => {
+                const now = new Date().getTime();
+                const distance = examTargetDate - now;
+
+                if (distance < 0) {
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('timer-days').innerText = days.toString().padStart(2, '0');
+                document.getElementById('timer-hours').innerText = hours.toString().padStart(2, '0');
+                document.getElementById('timer-mins').innerText = minutes.toString().padStart(2, '0');
+                document.getElementById('timer-secs').innerText = seconds.toString().padStart(2, '0');
+            }, 1000);
+        }
+
+        // Window load setups
+        window.onload = function () {
+            // Setup Light/Dark mode toggler action
+            const themeBtn = document.getElementById('theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
+
+            themeBtn.addEventListener('click', () => {
+                isDarkTheme = !isDarkTheme;
+                if (isDarkTheme) {
+                    document.documentElement.classList.add('dark');
+                    themeIcon.className = "fa-solid fa-sun text-slate-300";
+                } else {
+                    document.documentElement.classList.toggle('dark', isDarkTheme);
+                    themeIcon.className = "fa-solid fa-moon text-slate-600";
+                }
+            });
+
+            // Feed setup initial render
+            renderEduSphereFeed(edusphereDatabase);
+            
+            // Start countdown clocks
+            initializeCountdownClock();
+        }
+    </script>
 </body>
 </html>
